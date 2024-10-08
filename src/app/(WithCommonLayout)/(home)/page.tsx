@@ -3,7 +3,7 @@ import Home from "@/components/modules/home/home";
 
 const HommePage = () => {
   return (
-    <div className=" lg:mb-40">
+    <div className="">
       <Home></Home>
     </div>
   );
