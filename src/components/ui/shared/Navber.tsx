@@ -24,16 +24,18 @@ const Navber = () => {
     setIsMenuOpen(!isMenuOpen);
   };
 
-  // Handle language change
+  // Unified function to handle language change (both event and direct value)
   const handleLanguageChange = (
-    event: React.ChangeEvent<HTMLSelectElement>
+    eventOrValue: React.ChangeEvent<HTMLSelectElement> | string
   ) => {
-    setLanguage(event.target.value);
+    if (typeof eventOrValue === "string") {
+      // If it's a string, we directly set the language
+      setLanguage(eventOrValue);
+    } else {
+      // If it's an event, we extract the value from the event
+      setLanguage(eventOrValue.target.value);
+    }
   };
-
-//   const handleLanguageChange1 = (value: string) => {
-//     setLanguage(value);
-//   };
   
 
   return (
@@ -43,7 +45,7 @@ const Navber = () => {
         <div className="flex items-center space-x-2">
           <div className="rounded-full bg-green-400 h-8 w-8 flex items-center justify-center">
             {/* Insert logo SVG here */}
-            <span className="text-black">🦉</span>
+            <span className="text-black text-xl">🦉</span>
           </div>
           <h1 className="font-bold text-xl text-black">TRAVEL VISTA</h1>
         </div>
@@ -103,7 +105,6 @@ const Navber = () => {
         {/* Mobile Menu Toggle */}
         <NavbarMenuToggle
           onClick={toggleMenu}
-          isOpen={isMenuOpen}
           className="md:hidden"
         >
           {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
@@ -111,42 +112,45 @@ const Navber = () => {
       </NavbarContent>
 
       {/* Mobile Menu */}
-      <NavbarMenu isOpen={isMenuOpen} onClose={() => setIsMenuOpen(false)}>
-        <NavbarMenuItem>
-          <Link href="#">Discover</Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link href="#">Trips</Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link href="#">Review</Link>
-        </NavbarMenuItem>
-        <NavbarMenuItem>
-          <Link href="#">More</Link>
-        </NavbarMenuItem>
+      {isMenuOpen && (
+  <NavbarMenu>
+    <NavbarMenuItem>
+      <Link href="#">Discover</Link>
+    </NavbarMenuItem>
+    <NavbarMenuItem>
+      <Link href="#">Trips</Link>
+    </NavbarMenuItem>
+    <NavbarMenuItem>
+      <Link href="#">Review</Link>
+    </NavbarMenuItem>
+    <NavbarMenuItem>
+      <Link href="#">More</Link>
+    </NavbarMenuItem>
 
-        {/* Language Selector (Mobile) */}
-        <NavbarMenuItem>
-          <Select
-            value={language}
-            onChange={handleLanguageChange}
-            placeholder="Language"
-            aria-label="Language Selector"
-            startContent={<RiGlobalFill />}
-            className="w-full"
-          >
-            <SelectItem key={"English"} value="EN">
-              English
-            </SelectItem>
-            <SelectItem key={"Français"} value="FR">
-              Français
-            </SelectItem>
-            <SelectItem key={"Español"} value="ES">
-              Español
-            </SelectItem>
-          </Select>
-        </NavbarMenuItem>
-      </NavbarMenu>
+    {/* Language Selector (Mobile) */}
+    <NavbarMenuItem>
+      <Select
+        value={language}
+        onChange={handleLanguageChange}
+        placeholder="Language"
+        aria-label="Language Selector"
+        startContent={<RiGlobalFill />}
+        className="w-full"
+      >
+        <SelectItem key={"English"} value="EN">
+          English
+        </SelectItem>
+        <SelectItem key={"Français"} value="FR">
+          Français
+        </SelectItem>
+        <SelectItem key={"Español"} value="ES">
+          Español
+        </SelectItem>
+      </Select>
+    </NavbarMenuItem>
+  </NavbarMenu>
+)}
+
     </Navbar>
   );
 };
