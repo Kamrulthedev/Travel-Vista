@@ -42,7 +42,7 @@ const Navber = () => {
       <NavbarBrand>
         {/* Tripadvisor Logo Placeholder */}
         <div className="flex items-center space-x-2 lg:-ml-32 ">
-          <Link className="flex gap-3" href={'/'}>
+          <Link className="flex gap-3" href={"/"}>
             {" "}
             <div className="rounded-full bg-green-400 h-8 w-8 flex items-center justify-center text-2xl">
               {/* Insert logo SVG here */}
@@ -90,13 +90,13 @@ const Navber = () => {
             startContent={<RiGlobalFill className="text-3xl" />}
           >
             <SelectItem className="text-xl" key={"English"} value="EN">
-              English
+            <p className="text-black font-serif text-lg"> English</p>
             </SelectItem>
             <SelectItem className="text-xl" key={"Français"} value="FR">
-              Français
+            <p className="text-black font-serif text-lg"> Français</p>
             </SelectItem>
             <SelectItem className="text-xl" key={"Español"} value="ES">
-              Español
+            <p className="text-black font-serif text-lg"> Español</p>
             </SelectItem>
           </Select>
         </NavbarItem>
@@ -122,16 +122,24 @@ const Navber = () => {
       {isMenuOpen && (
         <NavbarMenu>
           <NavbarMenuItem>
-            <Link href="#">Discover</Link>
+            <Link className="text-black font-serif text-xl" href="#">
+              Discover
+            </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link href="#">Trips</Link>
+            <Link className="text-black font-serif text-xl" href="#">
+              Trips
+            </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link href="#">Review</Link>
+            <Link className="text-black font-serif text-xl" href="#">
+              Review
+            </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link href="#">More</Link>
+            <Link className="text-black font-serif text-xl" href="#">
+              More
+            </Link>
           </NavbarMenuItem>
 
           {/* Language Selector (Mobile) */}
@@ -145,13 +153,13 @@ const Navber = () => {
               className="w-full"
             >
               <SelectItem key={"English"} value="EN">
-                English
+                <p className="text-black font-serif text-lg"> English</p>
               </SelectItem>
               <SelectItem key={"Français"} value="FR">
-                Français
+                <p className="text-black font-serif text-lg"> Français</p>
               </SelectItem>
               <SelectItem key={"Español"} value="ES">
-                Español
+                <p className="text-black font-serif text-lg"> Español</p>
               </SelectItem>
             </Select>
           </NavbarMenuItem>
