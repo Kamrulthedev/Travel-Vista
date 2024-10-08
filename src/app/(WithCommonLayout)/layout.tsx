@@ -1,11 +1,12 @@
-import Navber from "@/components/ui/shared/Navber"
+import Footer from "@/components/ui/shared/Footer";
+import Navber from "@/components/ui/shared/Navber";
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative flex flex-col h-screen">
-<Navber></Navber>
+      <Navber></Navber>
       <main>{children}</main>
-      footer
+      <Footer></Footer>
     </div>
   );
 }

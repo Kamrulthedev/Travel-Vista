@@ -36,39 +36,49 @@ const Navber = () => {
       setLanguage(eventOrValue.target.value);
     }
   };
-  
 
   return (
     <Navbar shouldHideOnScroll className="bg-white text-black font-serif">
       <NavbarBrand>
         {/* Tripadvisor Logo Placeholder */}
-        <div className="flex items-center space-x-2">
-          <div className="rounded-full bg-green-400 h-8 w-8 flex items-center justify-center">
-            {/* Insert logo SVG here */}
-            <span className="text-black text-xl">🦉</span>
-          </div>
-          <h1 className="font-bold text-xl text-black">TRAVEL VISTA</h1>
+        <div className="flex items-center space-x-2 lg:-ml-32 ">
+          <Link className="flex gap-3" href={'/'}>
+            {" "}
+            <div className="rounded-full bg-green-400 h-8 w-8 flex items-center justify-center text-2xl">
+              {/* Insert logo SVG here */}
+              <span className="text-black text-2xl">🦉</span>
+            </div>
+            <h1 className="font-bold text-2xl text-black">TRAVEL VISTA</h1>
+          </Link>
         </div>
       </NavbarBrand>
 
       {/* Desktop Menu */}
-      <NavbarContent className="hidden md:flex" justify="center">
+      <NavbarContent className="hidden md:flex lg:gap-8" justify="center">
         <NavbarItem>
-          <Link href="#">Discover</Link>
+          <Link href="#" className="lg:text-lg">
+            Discover
+          </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#">Trips</Link>
+          <Link href="#" className="lg:text-lg">
+            Trips
+          </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#">Review</Link>
+          <Link href="#" className="lg:text-lg">
+            Review
+          </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#">More</Link>
+          <Link href="#" className="lg:text-lg">
+            More
+          </Link>
         </NavbarItem>
       </NavbarContent>
 
       {/* Currency and Language Selectors */}
-      <NavbarContent justify="end" className="space-x-4 bg-white ">
+      <NavbarContent justify="end" className="gap-4 bg-white lg:-mr-32 ">
         <NavbarItem className="hidden md:flex">
           {/* Language Selector */}
           <Select
@@ -76,16 +86,16 @@ const Navber = () => {
             onChange={handleLanguageChange}
             aria-label="Language Selector"
             placeholder="English"
-            style={{ backgroundColor: "white", border: "1px solid #ccc" }} // Example style
-            startContent={<RiGlobalFill className="text-2xl" />}
+            style={{ backgroundColor: "white", border: "1px solid #ccc" }}
+            startContent={<RiGlobalFill className="text-3xl" />}
           >
-            <SelectItem key={"English"} value="EN">
+            <SelectItem className="text-xl" key={"English"} value="EN">
               English
             </SelectItem>
-            <SelectItem key={"Français"} value="FR">
+            <SelectItem className="text-xl" key={"Français"} value="FR">
               Français
             </SelectItem>
-            <SelectItem key={"Español"} value="ES">
+            <SelectItem className="text-xl" key={"Español"} value="ES">
               Español
             </SelectItem>
           </Select>
@@ -96,61 +106,57 @@ const Navber = () => {
             as={Link}
             href="#"
             color="primary"
-            className="bg-white text-black shadow-xl"
+            className="bg-white text-black shadow-xl text-[16px] border"
           >
             Sign in
           </Button>
         </NavbarItem>
 
         {/* Mobile Menu Toggle */}
-        <NavbarMenuToggle
-          onClick={toggleMenu}
-          className="md:hidden"
-        >
+        <NavbarMenuToggle onClick={toggleMenu} className="md:hidden">
           {isMenuOpen ? <FiX size={24} /> : <FiMenu size={24} />}
         </NavbarMenuToggle>
       </NavbarContent>
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-  <NavbarMenu>
-    <NavbarMenuItem>
-      <Link href="#">Discover</Link>
-    </NavbarMenuItem>
-    <NavbarMenuItem>
-      <Link href="#">Trips</Link>
-    </NavbarMenuItem>
-    <NavbarMenuItem>
-      <Link href="#">Review</Link>
-    </NavbarMenuItem>
-    <NavbarMenuItem>
-      <Link href="#">More</Link>
-    </NavbarMenuItem>
+        <NavbarMenu>
+          <NavbarMenuItem>
+            <Link href="#">Discover</Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link href="#">Trips</Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link href="#">Review</Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link href="#">More</Link>
+          </NavbarMenuItem>
 
-    {/* Language Selector (Mobile) */}
-    <NavbarMenuItem>
-      <Select
-        value={language}
-        onChange={handleLanguageChange}
-        placeholder="Language"
-        aria-label="Language Selector"
-        startContent={<RiGlobalFill />}
-        className="w-full"
-      >
-        <SelectItem key={"English"} value="EN">
-          English
-        </SelectItem>
-        <SelectItem key={"Français"} value="FR">
-          Français
-        </SelectItem>
-        <SelectItem key={"Español"} value="ES">
-          Español
-        </SelectItem>
-      </Select>
-    </NavbarMenuItem>
-  </NavbarMenu>
-)}
-
+          {/* Language Selector (Mobile) */}
+          <NavbarMenuItem>
+            <Select
+              value={language}
+              onChange={handleLanguageChange}
+              placeholder="Language"
+              aria-label="Language Selector"
+              startContent={<RiGlobalFill />}
+              className="w-full"
+            >
+              <SelectItem key={"English"} value="EN">
+                English
+              </SelectItem>
+              <SelectItem key={"Français"} value="FR">
+                Français
+              </SelectItem>
+              <SelectItem key={"Español"} value="ES">
+                Español
+              </SelectItem>
+            </Select>
+          </NavbarMenuItem>
+        </NavbarMenu>
+      )}
     </Navbar>
   );
 };
