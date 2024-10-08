@@ -1,9 +1,10 @@
-import Landing from "@/components/modules/home/Landing";
+import Home from "@/components/modules/home/home";
+
 
 const HommePage = () => {
   return (
-    <div className="h-screen lg:mb-40">
-      <Landing></Landing>
+    <div className=" lg:mb-40">
+      <Home></Home>
     </div>
   );
 };
