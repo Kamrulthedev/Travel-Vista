@@ -35,7 +35,7 @@ const Landing = () => {
 
       {/* Search Bar */}
       <div className="bg-white py-8">
-        <div className="max-w-4xl mx-auto flex justify-center items-center relative shadow-lg rounded-full lg:w-[500px]">
+        <div className="max-w-4xl mx-auto flex justify-center items-center relative shadow-lg rounded-full lg:w-full w-[400px]">
           <Input
             aria-label="Search"
             classNames={{
