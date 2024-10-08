@@ -106,7 +106,7 @@ const Navber = () => {
             as={Link}
             href="#"
             color="primary"
-            className="bg-white text-black shadow-xl text-[16px] border"
+            className="bg-white text-black shadow-sm text-[16px] border"
           >
             Sign in
           </Button>
