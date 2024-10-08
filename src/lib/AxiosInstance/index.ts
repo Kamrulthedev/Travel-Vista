@@ -1,7 +1,7 @@
 import envConfig from "@/config/envConfig";
 import axios from "axios";
 import { cookies } from "next/headers";
-import Router from "next/router"; 
+import { redirect } from "next/navigation";
 
 const axiosInstance = axios.create({
   baseURL: envConfig.baseApi,
@@ -36,7 +36,7 @@ axiosInstance.interceptors.response.use(
       cookies().delete("accessToken");
 
       // Redirect the user to the login page
-      Router.push("/login"); 
+      redirect("/login");
 
       return Promise.reject(error);
     }

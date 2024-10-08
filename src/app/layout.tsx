@@ -1,23 +1,50 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import { Providers } from "@/lib/Providers/Providers";
+import clsx from "clsx";
+import { siteConfig } from "@/config/site";
+import { fontSans } from "@/config/fonts";
+
+// export const metadata: Metadata = {
+//   title: "Travel Vista - Your Guide to Amazing Adventures",
+//   description: "Discover travel tips, guides, and insights to make your journeys unforgettable with Travel Vista.",
+// };
 
 export const metadata: Metadata = {
-  title: "Travel Vista - Your Guide to Amazing Adventures",
-  description: "Discover travel tips, guides, and insights to make your journeys unforgettable with Travel Vista.",
+  title: {
+    default: siteConfig.name,
+    template: `%s - ${siteConfig.name}`,
+  },
+  description: siteConfig.description,
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
+export const viewport: Viewport = {
+  themeColor: [
+    { media: "(prefers-color-scheme: light)", color: "white" },
+    { media: "(prefers-color-scheme: dark)", color: "black" },
+  ],
+};
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
-    <html lang="en">
+    <html suppressHydrationWarning lang="en">
+      <head />
       <body
-        className={`antialiased`}
+        className={clsx(
+          "min-h-screen bg-background font-sans antialiased",
+          fontSans.variable
+        )}
       >
-        {children}
+        <Providers themeProps={{ attribute: "class", defaultTheme: "dark" }}>
+          {children}
+        </Providers>
       </body>
     </html>
   );
