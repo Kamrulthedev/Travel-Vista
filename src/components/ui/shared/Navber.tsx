@@ -61,8 +61,8 @@ const Navber = () => {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" className="lg:text-lg">
-            Trips
+          <Link href="/about" className="lg:text-lg">
+           About
           </Link>
         </NavbarItem>
         <NavbarItem>
@@ -127,8 +127,8 @@ const Navber = () => {
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link className="text-black font-serif text-xl" href="#">
-              Trips
+            <Link className="text-black font-serif text-xl" href="/about">
+              About
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>

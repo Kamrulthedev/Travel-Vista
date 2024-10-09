@@ -1,3 +1,4 @@
+import Footer from '@/components/ui/shared/Footer';
 import Destination from './Destination';
 import Expolar from './Expolar';
 import Landing from './Landing';
@@ -20,6 +21,7 @@ const Home = () => {
             <Destination></Destination>
             <Expolar></Expolar>
             <Travelers></Travelers>
+            <Footer></Footer>
         </div>
     );
 };

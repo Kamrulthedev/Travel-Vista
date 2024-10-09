@@ -1,4 +1,3 @@
-import Footer from "@/components/ui/shared/Footer";
 import Navber from "@/components/ui/shared/Navber";
 
 export default function layout({ children }: { children: React.ReactNode }) {
@@ -6,7 +5,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
     <div className="relative flex flex-col h-screen">
       <Navber></Navber>
       <main>{children}</main>
-      <Footer></Footer>
+   
     </div>
   );
 }

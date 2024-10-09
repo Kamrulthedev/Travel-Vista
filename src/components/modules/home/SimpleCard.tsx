@@ -5,7 +5,7 @@ const SimpleCard = () => {
         <div className="flex flex-col gap-6 p-6 bg-white  font-serif text-black pt-16">
         {/* First section */}
         <div className="flex justify-center">
-          <div className="flex items-center justify-between bg-purple-100 p-6 rounded-lg w-[90%] ">
+          <div className="flex items-center justify-between bg-purple-50 p-6 rounded-lg w-[90%] ">
             <div className="flex items-center gap-4">
               {/* Image */}
               <img

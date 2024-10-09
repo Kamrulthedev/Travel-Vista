@@ -27,7 +27,7 @@ const VideoDiscover = () => {
     ];
 
     return (
-        <div className="relative h-screen w-full overflow-hidden">
+        <div className="relative h-screen w-full overflow-hidden p-5">
             {/* Carousel */}
             <Slider {...settings} className="absolute inset-0">
                 {images.map((image, index) => (

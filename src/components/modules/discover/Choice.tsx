@@ -2,7 +2,7 @@
 
 const Choice = () => {
   return (
-    <div className="max-w-6xl mx-auto p-8 text-black font-serif">
+    <div className="max-w-6xl mx-auto p-12 text-black font-serif ">
       {/* Header */}
       <div className="p-4">
         <h1 className="text-7xl mb-4">

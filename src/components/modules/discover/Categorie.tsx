@@ -5,7 +5,7 @@ import { Card, CardFooter, Image } from "@nextui-org/react";
 const Categorie = () => {
     
       return (
-        <div className="bg-white pb-10">
+        <div className="bg-white pb-10 p-2">
           <div className="pt-16 px-7 text-black space-y-4 pb-3">
             <h1 className="lg:text-4xl text-2xl font-serif">
             Explore all of the Best of the Best categories
