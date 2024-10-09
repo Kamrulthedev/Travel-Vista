@@ -7,7 +7,7 @@ const AboutBannar = () => {
       <div
         className="absolute inset-0 bg-cover bg-center"
         style={{
-          backgroundImage: "url('https://i.ibb.co.com/VLrD2d2/image.png')",
+          backgroundImage: "url('https://i.ibb.co.com/Tbh7sxs/image-1.png')",
           filter: "brightness(0.8)",
         }}
       ></div>

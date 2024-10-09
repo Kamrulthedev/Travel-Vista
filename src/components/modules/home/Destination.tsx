@@ -1,4 +1,4 @@
-"use client"; // Ensure the component is a Client Component to handle events like onClick
+"use client";
 
 import { Card, CardFooter, Image } from "@nextui-org/react";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
