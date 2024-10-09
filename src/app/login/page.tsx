@@ -37,7 +37,7 @@ const Login = () => {
         </div>
 
         {/* Second div: Login form */}
-        <div className="flex justify-center items-center h-screen lg:w-[500px] w-full">
+        <div className="flex justify-center items-center h-screen md:h-full lg:w-[500px] w-full">
           <div className="w-full max-w-md p-8 space-y-6 bg-white rounded-lg shadow-lg font-serif">
             <h2 className="text-2xl  text-black text-center">
               Welcome to Travel Vista
@@ -71,7 +71,7 @@ const Login = () => {
                 <input
                   type="email"
                   {...register("email", { required: "Email is required" })}
-                  className="w-full p-3 border rounded-lg bg-white"
+                  className="w-full p-3 border rounded-lg bg-white text-black"
                   placeholder="Email address *"
                 />
                 {errors.email && (
@@ -87,7 +87,7 @@ const Login = () => {
                   {...register("password", {
                     required: "Password is required",
                   })}
-                  className="w-full p-3 border rounded-lg bg-white"
+                  className="w-full p-3 border rounded-lg bg-white text-black"
                   placeholder="Password *"
                 />
                 {errors.password && (
@@ -127,8 +127,8 @@ const Login = () => {
             </form>
 
             <div className="text-center text-black">
-              <a href="#" className="text-blue-500">
-                Sign up
+              <a href="/register" className="text-blue-500 mr-2">
+                Sign Up
               </a>
               ? if you don&apos;t have an account.
             </div>
