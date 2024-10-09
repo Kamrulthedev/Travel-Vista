@@ -12,7 +12,13 @@ const Register = () => {
   } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    const userData = {
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      password: data.password,
+    };
+    console.log(userData);
   };
 
   return (
@@ -68,12 +74,12 @@ const Register = () => {
                 <input
                   type="name"
                   {...register("name", { required: "Name is required" })}
-                  className="w-full p-3 border rounded-lg bg-white"
+                  className="w-full p-3 border rounded-lg bg-white text-black"
                   placeholder="Your Name *"
                 />
-                {errors.email && (
+                {errors.name && (
                   <p className="text-red-500 text-sm">
-                    {errors.email.message?.toString()}
+                    {errors.name.message?.toString()}
                   </p>
                 )}
               </div>
@@ -81,7 +87,7 @@ const Register = () => {
                 <input
                   type="email"
                   {...register("email", { required: "Email is required" })}
-                  className="w-full p-3 border rounded-lg bg-white"
+                  className="w-full p-3 border rounded-lg bg-white text-black"
                   placeholder="Email address *"
                 />
                 {errors.email && (
@@ -96,12 +102,12 @@ const Register = () => {
                   {...register("phone", {
                     required: "Phone Number is required",
                   })}
-                  className="w-full p-3 border rounded-lg bg-white"
+                  className="w-full p-3 border rounded-lg bg-white text-black"
                   placeholder="Your Phone Number *"
                 />
-                {errors.email && (
+                {errors.phone && (
                   <p className="text-red-500 text-sm">
-                    {errors.email.message?.toString()}
+                    {errors.phone.message?.toString()}
                   </p>
                 )}
               </div>
@@ -112,7 +118,7 @@ const Register = () => {
                   {...register("password", {
                     required: "Password is required",
                   })}
-                  className="w-full p-3 border rounded-lg bg-white"
+                  className="w-full p-3 border rounded-lg bg-white text-black"
                   placeholder="Password *"
                 />
                 {errors.password && (
@@ -125,24 +131,18 @@ const Register = () => {
               <div className="flex items-center">
                 <input
                   type="checkbox"
-                  {...register("notRobot", { required: true })}
+                  {...register("notRobot", {
+                    required: "Must be entered this field",
+                  })}
                   className="mr-2 text-black"
                 />
                 <span className="text-black">I&apos;m not a robot</span>
               </div>
-
               {errors.notRobot && (
                 <p className="text-red-500 text-sm">
                   {errors.notRobot.message?.toString()}
                 </p>
               )}
-
-              <div className="text-right">
-                <a href="#" className="text-blue-500">
-                  Forgot password?
-                </a>
-              </div>
-
               <button
                 type="submit"
                 className="w-full p-3 bg-blue-500 text-white rounded-lg"

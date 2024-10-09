@@ -5,7 +5,6 @@
 import LoginNavbar from "@/components/ui/loginpage/LoginNavber";
 import { useForm } from "react-hook-form";
 
-
 const Login = () => {
   const {
     register,
@@ -14,7 +13,12 @@ const Login = () => {
   } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log(data);
+    const userData = {
+      email: data.email,
+      password: data.password,
+    };
+
+    console.log(userData);
   };
 
   return (
@@ -100,7 +104,9 @@ const Login = () => {
               <div className="flex items-center">
                 <input
                   type="checkbox"
-                  {...register("notRobot", { required: true })}
+                  {...register("notRobot", {
+                    required: "Must be entered this field",
+                  })}
                   className="mr-2 text-black"
                 />
                 <span className="text-black">I&apos;m not a robot</span>
@@ -113,7 +119,7 @@ const Login = () => {
               )}
 
               <div className="text-right">
-                <a href="#" className="text-blue-500">
+                <a href="/" className="text-blue-500">
                   Forgot password?
                 </a>
               </div>
