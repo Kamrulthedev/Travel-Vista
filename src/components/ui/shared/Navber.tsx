@@ -56,7 +56,7 @@ const Navber = () => {
       {/* Desktop Menu */}
       <NavbarContent className="hidden md:flex lg:gap-8" justify="center">
         <NavbarItem>
-          <Link href="#" className="lg:text-lg">
+          <Link href="/discover" className="lg:text-lg">
             Discover
           </Link>
         </NavbarItem>
@@ -122,7 +122,7 @@ const Navber = () => {
       {isMenuOpen && (
         <NavbarMenu>
           <NavbarMenuItem>
-            <Link className="text-black font-serif text-xl" href="#">
+            <Link className="text-black font-serif text-xl" href="/discover">
               Discover
             </Link>
           </NavbarMenuItem>
