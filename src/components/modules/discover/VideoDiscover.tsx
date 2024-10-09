@@ -36,7 +36,7 @@ const VideoDiscover = () => {
                             className="h-full bg-cover bg-center"
                             style={{
                                 backgroundImage: `url(${image})`,
-                                filter: 'brightness(0.8)',
+                                filter: 'brightness(0.7)',
                             }}
                         />
                     </div>
