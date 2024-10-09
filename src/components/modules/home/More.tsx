@@ -3,7 +3,7 @@ import React from "react";
 
 const More = () => {
   return (
-    <div className="flex flex-col gap-6 p-6 bg-white font-serif text-black">
+    <div className="flex flex-col gap-6 p-6 bg-purple-50  font-serif text-black">
       {/* First section */}
       <div className="flex justify-center">
         <div className="flex items-center justify-between bg-purple-100 p-6 rounded-lg w-[90%] ">
@@ -12,7 +12,7 @@ const More = () => {
             <img
               src="https://i.ibb.co.com/0BksSnD/image.png"
               alt="Traveler's Choice"
-              className="w-28 h-28 rounded-lg object-cover transition-all duration-300 blur-sm hover:blur-none"
+              className="w-28 h-28 rounded-lg object-cover"
             />
             <div>
               <h2 className="text-2xl font-bold">
@@ -37,7 +37,7 @@ const More = () => {
             <img
               src="https://i.ibb.co.com/x8RPjB4/image.png"
               alt="Keep on planning"
-              className="w-28 h-28 rounded-lg object-cover transition-all duration-300 blur-sm hover:blur-none"
+              className="w-28 h-28 rounded-lg object-cover"
             />
             <div>
               <h2 className="text-2xl font-bold">Keep on planning</h2>

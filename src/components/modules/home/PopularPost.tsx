@@ -68,7 +68,7 @@ const PopularPost = () => {
   };
 
   return (
-    <div className=" py-8 bg-white text-black font-serif px-6 ">
+    <div className=" py-8 bg-purple-50  text-black font-serif px-6 ">
       <div className="py-6 px-3 space-y-3">
         <h2 className="lg:text-4xl text-2xl">
           Most Popular Post In the Our travel Users

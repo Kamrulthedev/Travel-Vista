@@ -2,7 +2,7 @@
 
 const SimpleCard = () => {
     return (
-        <div className="flex flex-col gap-6 p-6 bg-white font-serif text-black pt-16">
+        <div className="flex flex-col gap-6 p-6 bg-purple-50  font-serif text-black pt-16">
         {/* First section */}
         <div className="flex justify-center">
           <div className="flex items-center justify-between bg-purple-100 p-6 rounded-lg w-[90%] ">
@@ -11,7 +11,7 @@ const SimpleCard = () => {
               <img
                 src="https://i.ibb.co.com/1KNp3DC/image.png"
                 alt="Traveler's Choice"
-                className="w-28 h-28 rounded-lg object-cover transition-all duration-300 blur-sm hover:blur-none"
+                className="w-28 h-28 rounded-lg object-cover"
               />
               <div>
                 <h2 className="text-2xl font-bold">

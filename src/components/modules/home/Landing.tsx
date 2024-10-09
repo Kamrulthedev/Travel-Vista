@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 
 const Landing = () => {
   return (
-    <div className="bg-gray-100 ">
+    <div className="bg-purple-50  ">
       {/* Header */}
       <header className="bg-white py-9">
         <div className="max-w-7xl mx-auto px-4 text-center items-center space-y-16">
