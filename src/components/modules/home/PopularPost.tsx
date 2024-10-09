@@ -68,7 +68,7 @@ const PopularPost = () => {
   };
 
   return (
-    <div className=" py-8 bg-white text-black font-serif px-6">
+    <div className=" py-8 bg-white text-black font-serif px-6 ">
       <div className="py-6 px-3 space-y-3">
         <h2 className="lg:text-4xl text-2xl">
           Most Popular Post In the Our travel Users
@@ -90,12 +90,12 @@ const PopularPost = () => {
         {/* Scrollable container */}
         <div
           id="scroll-container"
-          className="flex overflow-x-auto scrollbar-hide space-x-4 max-w-full"
+          className="flex overflow-x-auto scrollbar-hide space-x-4 max-w-full mb-10"
         >
           {posts.map((post) => (
             <div
               key={post.id}
-              className="min-w-[300px] bg-white shadow-lg rounded-lg overflow-hidden"
+              className="min-w-[300px] bg-white rounded-lg overflow-hidden mb-6"
             >
               <a href={post.link}>
                 <img
