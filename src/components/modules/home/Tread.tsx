@@ -2,7 +2,7 @@ import { Card, CardHeader, CardFooter, Image, Button } from "@nextui-org/react";
 
 const Tread = () => {
   return (
-    <div className="bg-purple-50 ">
+    <div className="bg-white pb-10">
       <div className="pt-16 px-7 text-black space-y-4 pb-3">
         <h1 className="lg:text-4xl text-2xl font-serif ">
           Treat yourself to an award-winning meal

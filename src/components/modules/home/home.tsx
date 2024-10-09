@@ -1,5 +1,6 @@
 import Expolar from './Expolar';
 import Landing from './Landing';
+import Might from './Might';
 import More from './More';
 import PopularPost from './PopularPost';
 import SimpleCard from './SimpleCard';
@@ -12,8 +13,9 @@ const Home = () => {
             <Landing></Landing>
             <SimpleCard></SimpleCard>
             <Tread></Tread>
-            <More></More>
             <PopularPost></PopularPost>
+            <Might></Might>
+            <More></More>
             <Expolar></Expolar>
             <Travelers></Travelers>
         </div>
