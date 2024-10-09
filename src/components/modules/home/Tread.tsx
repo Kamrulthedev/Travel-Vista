@@ -7,7 +7,7 @@ const Tread = () => {
         <h1 className="lg:text-4xl text-2xl font-serif ">
           Treat yourself to an award-winning meal
         </h1>
-        <p className="text-base font-serif">
+        <p className="text-base font-serif text-gray-500">
           2024’s Travelers’ Choice Awards Best of the Best Restaurants
         </p>
       </div>

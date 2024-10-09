@@ -1,4 +1,5 @@
 import Landing from './Landing';
+import PopularPost from './PopularPost';
 import Tread from './Tread';
 
 const Home = () => {
@@ -6,6 +7,7 @@ const Home = () => {
         <div>
             <Landing></Landing>
             <Tread></Tread>
+            <PopularPost></PopularPost>
         </div>
     );
 };
