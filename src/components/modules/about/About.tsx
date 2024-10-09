@@ -1,10 +1,11 @@
 import Footer from '@/components/ui/shared/Footer';
-import React from 'react';
+import AboutBannar from './AboutBannar';
+
 
 const About = () => {
     return (
         <div>
-            <h1>ggggggggggggggg</h1>
+            <AboutBannar></AboutBannar>
             <Footer></Footer>
         </div>
     );
