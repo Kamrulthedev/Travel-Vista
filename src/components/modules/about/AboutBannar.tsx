@@ -16,7 +16,7 @@ const AboutBannar = () => {
       <div className="relative z-10 flex flex-col items-center justify-center h-full text-white text-center font-serif">
         <h1 className="text-5xl md:text-7xl mb-6">ABOUT US</h1>
         <button className="px-8 py-3 bg-white text-gray-900 rounded-full font-medium hover:bg-sky-500 transition duration-300">
-          Discover the winners
+        For explorers everywhere
         </button>
       </div>
     </div>
