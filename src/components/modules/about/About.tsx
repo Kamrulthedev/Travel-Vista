@@ -2,6 +2,7 @@ import Footer from '@/components/ui/shared/Footer';
 import AboutBannar from './AboutBannar';
 import AboutDiscription from './AboutDiscription';
 import Join from './Join';
+import Evolution from './Evolution';
 
 
 const About = () => {
@@ -10,6 +11,7 @@ const About = () => {
             <AboutBannar></AboutBannar>
             <AboutDiscription></AboutDiscription>
             <Join></Join>
+            <Evolution></Evolution>
             <Footer></Footer>
         </div>
     );

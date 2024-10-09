@@ -1,7 +1,7 @@
 const AboutDiscription = () => {
   return (
     <div className="bg-white">
-      <div className="max-w-5xl mx-auto text-black py-16 text-xl font-serif space-y-8">
+      <div className="max-w-5xl mx-auto text-black lg:px-0 px-6 py-16 text-xl font-serif space-y-8">
         <div>
         <p className="leading-relaxed">
             We believe that travel is for everyone. It helps us learn about
