@@ -1,5 +1,6 @@
 import Categorie from "./Categorie";
 import Choice from "./Choice";
+import Social from "./Social";
 import VideoDiscover from "./VideoDiscover";
 
 
@@ -10,6 +11,7 @@ const HomeDiscover = () => {
             <VideoDiscover></VideoDiscover>
             <Choice></Choice>
             <Categorie></Categorie>
+            <Social></Social>
         </div>
     );
 };

@@ -8,7 +8,7 @@ const Categorie = () => {
         <div className="bg-white pb-10">
           <div className="pt-16 px-7 text-black space-y-4 pb-3">
             <h1 className="lg:text-4xl text-2xl font-serif">
-              Top destinations for your next vacation
+            Explore all of the Best of the Best categories
             </h1>
           </div>
     
