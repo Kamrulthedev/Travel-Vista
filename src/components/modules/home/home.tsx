@@ -1,3 +1,4 @@
+import Destination from './Destination';
 import Expolar from './Expolar';
 import Landing from './Landing';
 import Might from './Might';
@@ -16,6 +17,7 @@ const Home = () => {
             <PopularPost></PopularPost>
             <Might></Might>
             <More></More>
+            <Destination></Destination>
             <Expolar></Expolar>
             <Travelers></Travelers>
         </div>
