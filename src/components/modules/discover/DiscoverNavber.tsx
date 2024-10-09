@@ -17,7 +17,7 @@ const DiscoverNavber = () => {
               />
               <h1 className="text-3xl font-bold">Travel Vista</h1>
             </div>
-            <p className="text-gray-400 mt-2 max-w-sm">
+            <p className="text-gray-700 mt-2 max-w-sm">
               We offer top-notch services around the world, delivering
               high-quality solutions and customer satisfaction.
             </p>

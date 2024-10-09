@@ -41,7 +41,7 @@ const Navber = () => {
     <Navbar shouldHideOnScroll className="bg-white text-black font-serif">
       <NavbarBrand>
         {/* Tripadvisor Logo Placeholder */}
-        <div className="flex items-center space-x-2 lg:-ml-32 ">
+        <div className="flex items-center space-x-2 lg:-ml-32">
           <Link className="flex gap-3" href={"/"}>
             {" "}
             <div className="rounded-full bg-green-400 h-8 w-8 flex items-center justify-center text-2xl">
@@ -54,24 +54,24 @@ const Navber = () => {
       </NavbarBrand>
 
       {/* Desktop Menu */}
-      <NavbarContent className="hidden md:flex lg:gap-8" justify="center">
+      <NavbarContent className="hidden md:flex lg:gap-5" justify="center">
         <NavbarItem>
-          <Link href="/discover" className="lg:text-lg">
+          <Link href="/discover" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
             Discover
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/about" className="lg:text-lg">
-           About
+          <Link href="/about" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
+           About Us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" className="lg:text-lg">
-            Review
+          <Link href="/contact" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
+           Contact Us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" className="lg:text-lg">
+          <Link href="#" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
             More
           </Link>
         </NavbarItem>
@@ -122,22 +122,22 @@ const Navber = () => {
       {isMenuOpen && (
         <NavbarMenu>
           <NavbarMenuItem>
-            <Link className="text-black font-serif text-xl" href="/discover">
+            <Link className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg" href="/discover">
               Discover
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link className="text-black font-serif text-xl" href="/about">
-              About
+            <Link className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg" href="/about">
+              About Us
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link className="text-black font-serif text-xl" href="#">
-              Review
+            <Link className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg" href="/contact">
+            Contact Us
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link className="text-black font-serif text-xl" href="#">
+            <Link className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg" href="#">
               More
             </Link>
           </NavbarMenuItem>
