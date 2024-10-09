@@ -1,9 +1,10 @@
 import VideoDiscover from "./VideoDiscover";
 
 
+
 const HomeDiscover = () => {
     return (
-        <div>
+        <div className="bg-white">
             <VideoDiscover></VideoDiscover>
         </div>
     );
