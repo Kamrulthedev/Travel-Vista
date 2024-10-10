@@ -1,9 +1,10 @@
+import AdminNavber from "@/components/admin/AdminNavber/AdminNavber";
 import { ReactNode } from "react";
 
 export default function layout({ children }: { children: ReactNode }) {
   return (
     <div>
-      <h1>Admin layout</h1>
+      <AdminNavber></AdminNavber>
       {children}
     </div>
   );

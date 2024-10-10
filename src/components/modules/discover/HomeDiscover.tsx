@@ -1,3 +1,4 @@
+import Navber from "@/components/ui/shared/Navber";
 import SimpleCard from "../home/SimpleCard";
 import Categorie from "./Categorie";
 import Choice from "./Choice";
@@ -10,6 +11,7 @@ import VideoDiscover from "./VideoDiscover";
 const HomeDiscover = () => {
     return (
         <div className="bg-white">
+            <Navber></Navber>
             <VideoDiscover></VideoDiscover>
             <Choice></Choice>
             <Categorie></Categorie>

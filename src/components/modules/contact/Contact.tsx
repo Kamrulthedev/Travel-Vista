@@ -1,3 +1,4 @@
+import Navber from "@/components/ui/shared/Navber";
 import DiscoverNavber from "../discover/DiscoverNavber";
 import ContactCard from "./ContactCard";
 import ContactHome from "./ContactHome";
@@ -9,6 +10,7 @@ import ContactUs from "./ContactUs";
 const Contact = () => {
     return (
         <div>
+            <Navber></Navber>
             <ContactHome></ContactHome>
             <ContactSimpleCard></ContactSimpleCard>
             <ContactCard></ContactCard>

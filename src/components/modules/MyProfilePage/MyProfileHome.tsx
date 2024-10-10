@@ -97,69 +97,70 @@ const MyProfileHome = () => {
 
   {/* Edit Profile Modal */}
   {isEditModalOpen && (
-    <div className="fixed inset-0 flex justify-center items-center bg-gray-900 bg-opacity-50">
-      <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-4 sm:w-96">
-        <h2 className="text-xl font-bold mb-4">Edit Profile</h2>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">Name</label>
-            <input
-              {...register('name')}
-              type="text"
-              className="mt-1 block w-full px-3 py-2 border bg-white border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">Username</label>
-            <input
-              {...register('username')}
-              type="text"
-              className="mt-1 block w-full px-3 py-2 border bg-white border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">Email</label>
-            <input
-              {...register('email')}
-              type="email"
-              className="mt-1 block w-full px-3 py-2 border bg-white border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">Phone</label>
-            <input
-              {...register('phone')}
-              type="tel"
-              className="mt-1 block w-full px-3 py-2 border bg-white border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-            />
-          </div>
-          <div className="mb-4">
-            <label className="block text-sm font-medium text-gray-700">Address</label>
-            <input
-              {...register('address')}
-              type="text"
-              className="mt-1 block w-full px-3 py-2 border bg-white border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
-            />
-          </div>
-          <div className="flex justify-end">
-            <button
-              type="button"
-              onClick={handleEditProfile}
-              className="px-4 py-2 bg-gray-300 text-black rounded-md mr-2"
-            >
-              Cancel
-            </button>
-            <button
-              type="submit"
-              className="px-4 py-2 bg-blue-500 text-white rounded-md"
-            >
-              Save
-            </button>
-          </div>
-        </form>
-      </div>
+  <div className="fixed inset-0 z-50 flex justify-center items-center bg-gray-900 bg-opacity-50">
+    <div className="bg-white p-6 rounded-lg shadow-lg w-full max-w-md mx-4 sm:w-96 relative z-50">
+      <h2 className="text-xl font-bold mb-4">Edit Profile</h2>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Name</label>
+          <input
+            {...register('name')}
+            type="text"
+            className="mt-1 block w-full px-3 py-2 border bg-white border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Username</label>
+          <input
+            {...register('username')}
+            type="text"
+            className="mt-1 block w-full px-3 py-2 border bg-white border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Email</label>
+          <input
+            {...register('email')}
+            type="email"
+            className="mt-1 block w-full px-3 py-2 border bg-white border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Phone</label>
+          <input
+            {...register('phone')}
+            type="tel"
+            className="mt-1 block w-full px-3 py-2 border bg-white border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
+          />
+        </div>
+        <div className="mb-4">
+          <label className="block text-sm font-medium text-gray-700">Address</label>
+          <input
+            {...register('address')}
+            type="text"
+            className="mt-1 block w-full px-3 py-2 border bg-white border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring focus:ring-blue-500"
+          />
+        </div>
+        <div className="flex justify-end">
+          <button
+            type="button"
+            onClick={handleEditProfile}
+            className="px-4 py-2 bg-gray-300 text-black rounded-md mr-2"
+          >
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="px-4 py-2 bg-blue-500 text-white rounded-md"
+          >
+            Save
+          </button>
+        </div>
+      </form>
     </div>
-  )}
+  </div>
+)}
+
 </div>
 
   );

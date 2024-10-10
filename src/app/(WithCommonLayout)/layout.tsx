@@ -1,9 +1,9 @@
-import Navber from "@/components/ui/shared/Navber";
+
 
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <div className="relative flex flex-col h-screen">
-      <Navber></Navber>
+ 
       <main>{children}</main>
     </div>
   );
