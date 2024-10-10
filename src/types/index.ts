@@ -1,12 +1,15 @@
-export interface IUser {
-    _id: string;
-    name: string;
-    role: string;
-    email: string;
-    status: string;
-    mobileNumber: string;
-    profilePhoto: string;
-    createdAt?: string;
-    updatedAt?: string;
-    __v?: number;
+
+  export interface IUser {
+    _id: string
+    name: string
+    email: string
+    phone?: string
+    password: string
+    role: string
+    profileImg?: string
+    address?: string
+    needsPasswordChange: boolean
+    isDeleted: boolean
+    createdAt: string
+    updatedAt: string
   }

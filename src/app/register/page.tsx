@@ -19,7 +19,9 @@ const Register = () => {
       password: data.password,
     };
     console.log(userData);
+
   };
+
 
   return (
     <div className="bg-sky-100">

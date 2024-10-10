@@ -5,7 +5,6 @@ export default function layout({ children }: { children: React.ReactNode }) {
     <div className="relative flex flex-col h-screen">
       <Navber></Navber>
       <main>{children}</main>
-   
     </div>
   );
 }
