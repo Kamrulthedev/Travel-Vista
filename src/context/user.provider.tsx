@@ -27,7 +27,7 @@ import { getCurrentUser } from "@/services/AuthService";
   
     const handleUser = async () => {
       const user = await getCurrentUser();
-  
+  console.log(user)
       setUser(user);
       setIsLoading(false);
     };
@@ -45,11 +45,9 @@ import { getCurrentUser } from "@/services/AuthService";
   
   export const useUser = () => {
     const context = useContext(UserContext);
-  
     if (context === undefined) {
       throw new Error("useUser must be used within the UserProvider context");
     }
-  
     return context;
   };
   

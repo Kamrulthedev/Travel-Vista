@@ -3,9 +3,15 @@
 "use client";
 
 import LoginNavbar from "@/components/ui/loginpage/LoginNavber";
+import { useUser } from "@/context/user.provider";
+import { useUserLogin } from "@/hooks/auth.hook";
 import { useForm } from "react-hook-form";
 
 const Login = () => {
+
+  const { setIsLoading: userLoading } = useUser();
+  const { mutate: handleUserLogin, isPending, isSuccess } = useUserLogin();
+
   const {
     register,
     handleSubmit,
@@ -18,7 +24,8 @@ const Login = () => {
       password: data.password,
     };
 
-    console.log(userData);
+    handleUserLogin(userData);
+    userLoading(true);
   };
 
   return (
