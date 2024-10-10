@@ -1,9 +1,10 @@
+import MyFollowers from "@/components/modules/MyFollowers/MyFollowers";
 
 
 const page = () => {
     return (
-        <div>
-            <h1>MY Followers Page</h1>
+        <div className="bg-gray-100 p-6">
+            <MyFollowers></MyFollowers>
         </div>
     );
 };

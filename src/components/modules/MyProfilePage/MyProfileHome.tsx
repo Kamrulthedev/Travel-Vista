@@ -22,7 +22,6 @@ const MyProfileHome = () => {
   }, []);
 
 
-
   // react-hook-form setup
   const { register, handleSubmit } = useForm({
     defaultValues: {
