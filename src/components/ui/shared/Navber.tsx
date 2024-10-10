@@ -17,19 +17,20 @@ import Link from "next/link";
 import { RiGlobalFill } from "react-icons/ri";
 import { FiMenu, FiX } from "react-icons/fi";
 import { Select, SelectItem } from "@nextui-org/select";
-import { getCurrentUser } from "@/services/AuthService";
+import { getCurrentUser, logout } from "@/services/AuthService";
 import { IUser } from "@/types";
 
 const Navber = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false); 
   const [language, setLanguage] = useState("EN");
-  const [user, setUser] = useState<IUser | null>(null); // User state
-  const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState<IUser | null>(null);
+ 
 
   const handleUser = async () => {
     const user = await getCurrentUser();
     setUser(user);
-    setIsLoading(false);
+ 
   };
 
   useEffect(() => {
@@ -38,6 +39,16 @@ const Navber = () => {
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
+  };
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handleLogout = () => {
+    // Logic to handle logout (e.g., clear session, redirect to login page)
+    logout();
+    window.location.href = "/login"; // Redirect to login after logout
   };
 
   // Unified function to handle language change
@@ -114,13 +125,38 @@ const Navber = () => {
 
         <NavbarItem>
           {user ? (
-            <div className="flex items-center gap-2">
+            <div className="relative">
+              {/* Profile Image */}
               <img
-                src={user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"} 
+           src={user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"}
                 alt="Profile"
-                className="h-12 w-12 border-2 border-black rounded-full cursor-pointer object-cover"
-                onClick={() => window.location.href = "/dashboard"}
+                className="h-12 w-12 rounded-full cursor-pointer border-2 border-black"
+                onClick={toggleDropdown} // Toggle dropdown on click
               />
+
+              {/* Dropdown Menu */}
+              {isDropdownOpen && (
+                <div className="absolute right-0 mt-2 w-48 bg-purple-300 shadow-lg rounded-md z-10">
+                  <ul>
+                    <li>
+                      <button
+                        className="w-full text-left px-4 py-2 text-black hover:bg-purple-400"
+                        onClick={() => window.location.href = "/dashboard"}
+                      >
+                        Your Dashboard
+                      </button>
+                    </li>
+                    <li>
+                      <button
+                        className="w-full text-left px-4 py-2 text-black hover:bg-purple-400"
+                        onClick={handleLogout}
+                      >
+                        Log out
+                      </button>
+                    </li>
+                  </ul>
+                </div>
+              )}
             </div>
           ) : (
             <Button
@@ -188,5 +224,6 @@ const Navber = () => {
     </Navbar>
   );
 };
+;
 
 export default Navber;
