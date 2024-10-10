@@ -22,19 +22,17 @@ import { IUser } from "@/types";
 
 const Navber = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false); 
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [language, setLanguage] = useState("EN");
   const [user, setUser] = useState<IUser | null>(null);
- 
 
   const handleUser = async () => {
     const user = await getCurrentUser();
     setUser(user);
- 
   };
 
   useEffect(() => {
-    handleUser(); // Fetch user data on component mount
+    handleUser();
   }, []);
 
   const toggleMenu = () => {
@@ -46,9 +44,8 @@ const Navber = () => {
   };
 
   const handleLogout = () => {
-    // Logic to handle logout (e.g., clear session, redirect to login page)
     logout();
-    window.location.href = "/login"; // Redirect to login after logout
+    window.location.href = "/login";
   };
 
   // Unified function to handle language change
@@ -79,22 +76,34 @@ const Navber = () => {
       <NavbarContent className="hidden md:flex lg:gap-5" justify="center">
         {/* Links */}
         <NavbarItem>
-          <Link href="/discover" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
+          <Link
+            href="/discover"
+            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
+          >
             Discover
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/about" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
+          <Link
+            href="/about"
+            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
+          >
             About Us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/contact" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
+          <Link
+            href="/contact"
+            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
+          >
             Contact Us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="#" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
+          <Link
+            href="#"
+            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
+          >
             More
           </Link>
         </NavbarItem>
@@ -128,10 +137,12 @@ const Navber = () => {
             <div className="relative">
               {/* Profile Image */}
               <img
-           src={user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"}
+                src={
+                  user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"
+                }
                 alt="Profile"
                 className="h-12 w-12 rounded-full cursor-pointer border-2 border-black"
-                onClick={toggleDropdown} // Toggle dropdown on click
+                onClick={toggleDropdown}
               />
 
               {/* Dropdown Menu */}
@@ -140,15 +151,15 @@ const Navber = () => {
                   <ul>
                     <li>
                       <button
-                        className="w-full text-left px-4 py-2 text-black hover:bg-purple-400"
-                        onClick={() => window.location.href = "/dashboard"}
+                        className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
+                        onClick={() => (window.location.href = "/dashboard")}
                       >
                         Your Dashboard
                       </button>
                     </li>
                     <li>
                       <button
-                        className="w-full text-left px-4 py-2 text-black hover:bg-purple-400"
+                        className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
                         onClick={handleLogout}
                       >
                         Log out
@@ -179,22 +190,34 @@ const Navber = () => {
         <NavbarMenu>
           {/* Mobile Menu Items */}
           <NavbarMenuItem>
-            <Link href="/discover" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
+            <Link
+              href="/discover"
+              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
+            >
               Discover
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link href="/about" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
+            <Link
+              href="/about"
+              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
+            >
               About Us
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link href="/contact" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
+            <Link
+              href="/contact"
+              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
+            >
               Contact Us
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link href="#" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
+            <Link
+              href="#"
+              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
+            >
               More
             </Link>
           </NavbarMenuItem>
@@ -224,6 +247,4 @@ const Navber = () => {
     </Navbar>
   );
 };
-;
-
 export default Navber;
