@@ -2,11 +2,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 import LoginNavbar from "@/components/ui/loginpage/LoginNavber";
-// import { useUserRegistration } from "@/hooks/auth.hook";
+import { useUserRegistration } from "@/hooks/auth.hook";
 import { useForm } from "react-hook-form";
 
 const Register = () => {
-  // const { mutate: handleUserRegistration, isPending } = useUserRegistration();
+  const { mutate: handleUserRegistration, isPending } = useUserRegistration();
 
   const {
     register,
@@ -22,7 +22,7 @@ const Register = () => {
       password: data.password,
     };
     console.log(userData);
-    // handleUserRegistration(userData)
+    handleUserRegistration(userData)
 
   };
 

@@ -149,14 +149,28 @@ const Navber = () => {
               {isDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-purple-300 shadow-lg rounded-md z-10">
                   <ul>
-                    <li>
-                      <button
-                        className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
-                        onClick={() => (window.location.href = "/dashboard")}
-                      >
-                        Your Dashboard
-                      </button>
-                    </li>
+                    {user.role === "ADMIN" ? (
+                      <li>
+                        <button
+                          className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
+                          onClick={() =>
+                            (window.location.href = "/admin")
+                          }
+                        >
+                          Admin Dashboard
+                        </button>
+                      </li>
+                    ) : user.role === "USER" ? (
+                      <li>
+                        <button
+                          className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
+                          onClick={() => (window.location.href = "/profile")}
+                        >
+                          Dashboard
+                        </button>
+                      </li>
+                    ) : null}
+
                     <li>
                       <button
                         className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
