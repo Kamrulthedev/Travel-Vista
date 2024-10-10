@@ -141,13 +141,13 @@ const Navber = () => {
                   user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"
                 }
                 alt="Profile"
-                className="h-12 w-12 rounded-full cursor-pointer border-2 border-black"
+                className="h-12 w-12 rounded-full cursor-pointer border-1 border-black"
                 onClick={toggleDropdown}
               />
 
               {/* Dropdown Menu */}
               {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-purple-300 shadow-lg rounded-md z-10">
+                <div className="absolute right-0 mt-2 w-48 bg-purple-300 shadow-lg rounded-md z-10 p-4">
                   <ul>
                     <li>
                       <button

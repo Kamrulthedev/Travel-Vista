@@ -11,6 +11,8 @@ const MyFollowers = () => {
     { id: 3, name: "David Wilson", username: "@davidwilson" },
   ]);
 
+console.log(setFollowersList)
+
   return (
     <div className="max-w-3xl mx-auto p-6 bg-gray-100 rounded-lg shadow-md text-black font-serif">
       <h2 className="text-2xl font-bold mb-4">Followers</h2>

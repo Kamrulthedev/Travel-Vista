@@ -8,6 +8,8 @@ import { useForm } from "react-hook-form";
 const Register = () => {
   const { mutate: handleUserRegistration, isPending } = useUserRegistration();
 
+console.log(isPending)
+
   const {
     register,
     handleSubmit,
