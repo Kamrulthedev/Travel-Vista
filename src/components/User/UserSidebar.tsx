@@ -6,14 +6,14 @@ import {
   FaTimes,
   FaChartLine,
   FaCalendarAlt,
-  FaHome,
-  FaMoneyCheckAlt
+  FaHome
 } from "react-icons/fa";
 import { TfiHelpAlt } from "react-icons/tfi";
 import { CiLogout } from "react-icons/ci";
 import "./UserSidebar.css";
 import { logout } from "@/services/AuthService";
 import { SlUserFollow, SlUserFollowing  } from "react-icons/sl";
+import { MdVerified } from "react-icons/md";
 
 
 const UserSidebar = () => {
@@ -70,12 +70,12 @@ const UserSidebar = () => {
               <Link href="/user/following">Following</Link>
             </li>
             <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-              <FaMoneyCheckAlt className="mr-3" />
+              <MdVerified className="mr-3" />
               <Link href="/user/verify">Verify Account</Link>
             </li>
             <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
                 <TfiHelpAlt className="mr-3" />
-                <Link href="/admin/adminHelps">Admin Help</Link>
+                <Link href="/user/adminHelp">Admin Help</Link>
               </li>
               <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
               <CiLogout  className="mr-3" />

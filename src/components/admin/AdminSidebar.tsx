@@ -13,7 +13,6 @@ import {
   FaCog,
 } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
-import { TfiHelpAlt } from "react-icons/tfi";
 import { CiLogout } from "react-icons/ci";
 
 import "./AdminSidebar.css";
@@ -85,10 +84,6 @@ const AdminSidebar = () => {
             <FaCog className="mr-3" />
             <Link href="/admin/settings">Settings</Link>
           </li>
-          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-              <TfiHelpAlt className="mr-3" />
-              <Link href="/admin/adminHelps">Admin Help</Link>
-            </li>
             <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <CiLogout  className="mr-3" />
             <button onClick={ handleLogout}>Log Out</button>
