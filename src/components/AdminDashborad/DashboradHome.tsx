@@ -1,8 +1,9 @@
+import DashboradGraph from "./DashboradGraph";
 
 const DashboradHome = () => {
     return (
         <div>
-            <h1>This is Admin Dehborad</h1>
+          <DashboradGraph></DashboradGraph>
         </div>
     );
 };
