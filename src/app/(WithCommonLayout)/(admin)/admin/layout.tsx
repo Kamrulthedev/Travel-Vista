@@ -9,11 +9,13 @@ export default function layout({
 }) {
   return (
     <>
-      <div className="w-full flex gap-10 bg-purple-100">
+      <div className="w-full flex gap-10 ">
         <div className="w-2/5">
-          <AdminSidebar></AdminSidebar>
+          <div className="sticky top-0 h-screen overflow-y-auto">
+            <AdminSidebar />
+          </div>
         </div>
-        <div className="w-4/5 ">{children}</div>
+        <div className="w-4/5">{children}</div>
       </div>
     </>
   );

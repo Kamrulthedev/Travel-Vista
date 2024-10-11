@@ -27,7 +27,6 @@ import { getCurrentUser } from "@/services/AuthService";
   
     const handleUser = async () => {
       const user = await getCurrentUser();
-  console.log(user)
       setUser(user);
       setIsLoading(false);
     };

@@ -27,7 +27,10 @@ const AdminNavber = () => {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+    if (
+      dropdownRef.current &&
+      !dropdownRef.current.contains(event.target as Node)
+    ) {
       setIsDropdownOpen(false);
     }
   };
@@ -73,9 +76,7 @@ const AdminNavber = () => {
           <div className="relative" ref={dropdownRef}>
             {/* Profile Image */}
             <img
-              src={
-                user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"
-              }
+              src={user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"}
               alt="Profile"
               className="h-12 w-12 rounded-full cursor-pointer border-1 border-black"
               onClick={toggleDropdown}
@@ -88,7 +89,9 @@ const AdminNavber = () => {
                   <li>
                     <button
                       className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
-                      onClick={() => (window.location.href = "/myProfile/myPosts")}
+                      onClick={() =>
+                        (window.location.href = "/myProfile/myPosts")
+                      }
                     >
                       My Profile
                     </button>
