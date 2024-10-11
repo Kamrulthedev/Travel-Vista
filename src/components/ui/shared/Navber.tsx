@@ -161,7 +161,7 @@ const Navber = () => {
                       <li>
                         <button
                           className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
-                          onClick={() => (window.location.href = "/admin")}
+                          onClick={() => (window.location.href = "/admin/adminDeshborad")}
                         >
                           Admin Dashboard
                         </button>

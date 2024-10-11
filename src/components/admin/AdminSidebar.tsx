@@ -1,10 +1,8 @@
 "use client"
 import React, { useState } from 'react';
 import Link from 'next/link';
-import {
-  FaBars, FaTimes, FaUser, FaChartLine, FaCalendarAlt, FaUsers,
-  FaDribbble, FaBehance, FaYoutube, FaInstagram, FaCog, FaArchive, FaInfoCircle
-} from 'react-icons/fa';
+import { FaBars, FaTimes, FaChartLine, FaUser, FaCalendarAlt, FaDribbble, FaBehance, FaYoutube, FaInstagram, FaComments, FaTags, FaMoneyCheckAlt, FaChartPie, FaShieldAlt, FaCog } from 'react-icons/fa';
+
 
 const AdminSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -15,7 +13,7 @@ const AdminSidebar = () => {
   };
 
   return (
-    <div className="flex ">
+    <div className="flex text-black font-serif">
       {/* Hamburger Icon for Mobile/Tablet */}
       <button 
         className="md:hidden p-4 focus:outline-none"
@@ -29,21 +27,45 @@ const AdminSidebar = () => {
         {/* Menu Section */}
         <h2 className="text-lg font-semibold mb-4">Menu</h2>
         <ul className="space-y-4">
-          <li className="flex items-center text-gray-600 hover:text-black transition">
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaChartLine className="mr-3" />
-            <Link href="/admin/adminDeshborad">Dashboard</Link>
+            <Link href="/admin/dashboard">Dashboard</Link>
           </li>
-          <li className="flex items-center text-gray-600 hover:text-black transition">
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaUser className="mr-3" />
+            <Link href="/admin/users">Manage Users</Link>
+          </li>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <FaCalendarAlt className="mr-3" />
+            <Link href="/admin/posts">Manage Posts</Link>
+          </li>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <FaComments className="mr-3" />
+            <Link href="/admin/comments">Manage Comments</Link>
+          </li>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <FaTags className="mr-3" />
+            <Link href="/admin/categories">Manage Categories</Link>
+          </li>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <FaMoneyCheckAlt className="mr-3" />
+            <Link href="/admin/payments">Payments</Link>
+          </li>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <FaChartPie className="mr-3" />
             <Link href="/admin/analytics">Analytics</Link>
           </li>
-          <li className="flex items-center text-gray-600 hover:text-black transition">
-            <FaCalendarAlt className="mr-3" />
-            <Link href="/admin/schedules">Schedules</Link>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <FaShieldAlt className="mr-3" />
+            <Link href="/admin/moderation">Moderation</Link>
           </li>
-          <li className="flex items-center text-gray-600 hover:text-black transition">
-            <FaUsers className="mr-3" />
-            <Link href="/admin/communities">Communities</Link>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <FaUser className="mr-3" />
+            <Link href="/admin/profile">Profile</Link>
+          </li>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <FaCog className="mr-3" />
+            <Link href="/admin/settings">Settings</Link>
           </li>
         </ul>
 
@@ -51,40 +73,21 @@ const AdminSidebar = () => {
         <div className="mt-8">
           <h2 className="text-lg font-semibold mb-4">Accounts</h2>
           <ul className="space-y-4">
-            <li className="flex items-center text-white bg-green-500 hover:bg-green-600 rounded-lg p-2">
+            <li className="flex items-center text-gray-600 hover:bg-green-600 hover:text-black rounded-lg p-2">
               <FaDribbble className="mr-3" />
               <Link href="/accounts/dribbble">Dribbble</Link>
             </li>
-            <li className="flex items-center text-gray-600 hover:text-black transition">
+            <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
               <FaBehance className="mr-3" />
               <Link href="/accounts/behance">Behance</Link>
             </li>
-            <li className="flex items-center text-gray-600 hover:text-black transition">
+            <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
               <FaYoutube className="mr-3" />
               <Link href="/accounts/youtube">YouTube</Link>
             </li>
-            <li className="flex items-center text-gray-600 hover:text-black transition">
+            <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
               <FaInstagram className="mr-3" />
               <Link href="/accounts/instagram">Instagram</Link>
-            </li>
-          </ul>
-        </div>
-
-        {/* Others Section */}
-        <div className="mt-8">
-          <h2 className="text-lg font-semibold mb-4">Others</h2>
-          <ul className="space-y-4">
-            <li className="flex items-center text-gray-600 hover:text-black transition">
-              <FaCog className="mr-3" />
-              <Link href="/settings">Settings</Link>
-            </li>
-            <li className="flex items-center text-gray-600 hover:text-black transition">
-              <FaArchive className="mr-3" />
-              <Link href="/archives">Archives</Link>
-            </li>
-            <li className="flex items-center text-gray-600 hover:text-black transition">
-              <FaInfoCircle className="mr-3" />
-              <Link href="/help">Help</Link>
             </li>
           </ul>
         </div>
