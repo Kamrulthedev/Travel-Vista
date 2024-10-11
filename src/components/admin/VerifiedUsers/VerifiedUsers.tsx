@@ -9,7 +9,7 @@ const verifiedUsers = [
   { id: 1, name: 'John Doe', email: 'john@example.com', image: 'https://via.placeholder.com/100', verifiedDate: '2024-10-10' },
   { id: 2, name: 'Jane Smith', email: 'jane@example.com', image: 'https://via.placeholder.com/100', verifiedDate: '2024-09-15' },
   { id: 2, name: 'Jane Smith', email: 'jane@example.com', image: 'https://via.placeholder.com/100', verifiedDate: '2024-09-15' },
-  // Add more verified users here
+
 ];
 
 const VerifiedUsers = () => {
