@@ -8,7 +8,6 @@ export default function layout({
 
 }: {
   children: ReactNode;
-  recentPosts: ReactNode;
 }) {
   return (
     <>
