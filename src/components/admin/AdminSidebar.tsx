@@ -8,12 +8,14 @@ import {
   FaUser,
   FaCalendarAlt,
   FaComments,
-  FaTags,
+  FaHome,
   FaMoneyCheckAlt,
   FaChartPie,
-  FaShieldAlt,
   FaCog,
 } from "react-icons/fa";
+import { MdVerified } from "react-icons/md";
+import { TfiHelpAlt } from "react-icons/tfi";
+
 import "./AdminSidebar.css";
 
 const AdminSidebar = () => {
@@ -45,6 +47,10 @@ const AdminSidebar = () => {
         <h2 className="text-lg font-semibold mb-4">Menu</h2>
         <ul className="space-y-2">
           <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <FaHome className="mr-3" />
+            <Link href="/">Home</Link>
+          </li>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaChartLine className="mr-3" />
             <Link href="/admin/adminDeshborad">Dashboard</Link>
           </li>
@@ -61,21 +67,18 @@ const AdminSidebar = () => {
             <Link href="/admin/comments">Manage Comments</Link>
           </li>
           <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-            <FaTags className="mr-3" />
-            <Link href="/admin/categories">Manage Categories</Link>
-          </li>
-          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaMoneyCheckAlt className="mr-3" />
             <Link href="/admin/payments">Payments</Link>
+          </li>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <MdVerified className="mr-3" />
+            <Link href="/admin/moderation">Verified users </Link>
           </li>
           <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaChartPie className="mr-3" />
             <Link href="/admin/analytics">Analytics</Link>
           </li>
-          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-            <FaShieldAlt className="mr-3" />
-            <Link href="/admin/moderation">Moderation</Link>
-          </li>
+
           <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaUser className="mr-3" />
             <Link href="/admin/profile">Profile</Link>
@@ -84,7 +87,12 @@ const AdminSidebar = () => {
             <FaCog className="mr-3" />
             <Link href="/admin/settings">Settings</Link>
           </li>
+          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+              <TfiHelpAlt className="mr-3" />
+              <Link href="/admin/adminHelps">Admin Help</Link>
+            </li>
         </ul>
+
       </div>
 
       {/* Overlay when sidebar is open on mobile */}
