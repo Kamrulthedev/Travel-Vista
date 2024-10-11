@@ -2,7 +2,7 @@
 /* eslint-disable @next/next/no-async-client-component */
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Button } from "@nextui-org/button";
 import {
   Navbar,
@@ -25,6 +25,7 @@ const Navber = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [language, setLanguage] = useState("EN");
   const [user, setUser] = useState<IUser | null>(null);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleUser = async () => {
     const user = await getCurrentUser();
@@ -48,23 +49,31 @@ const Navber = () => {
     window.location.href = "/login";
   };
 
-  // Unified function to handle language change
   const handleLanguageChange = (
     eventOrValue: React.ChangeEvent<HTMLSelectElement> | string
   ) => {
-    if (typeof eventOrValue === "string") {
-      setLanguage(eventOrValue);
-    } else {
-      setLanguage(eventOrValue.target.value);
-    }
+    setLanguage(typeof eventOrValue === "string" ? eventOrValue : eventOrValue.target.value);
   };
+
+  // Close dropdown if clicked outside
+  useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
     <Navbar shouldHideOnScroll className="bg-white text-black font-serif">
       <NavbarBrand>
-        {/* Tripadvisor Logo Placeholder */}
         <div className="flex items-center space-x-2 lg:-ml-32">
-          <Link className="flex gap-3" href={"/"}>
+          <Link className="flex gap-3" href="/">
             <div className="rounded-full bg-green-400 h-8 w-8 flex items-center justify-center text-2xl">
               <span className="text-black text-2xl">🦉</span>
             </div>
@@ -74,36 +83,23 @@ const Navber = () => {
       </NavbarBrand>
 
       <NavbarContent className="hidden md:flex lg:gap-5" justify="center">
-        {/* Links */}
         <NavbarItem>
-          <Link
-            href="/discover"
-            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
-          >
+          <Link href="/discover" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
             Discover
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link
-            href="/about"
-            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
-          >
+          <Link href="/about" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
             About Us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link
-            href="/contact"
-            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
-          >
+          <Link href="/contact" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
             Contact Us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link
-            href="#"
-            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
-          >
+          <Link href="#" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
             More
           </Link>
         </NavbarItem>
@@ -111,7 +107,6 @@ const Navber = () => {
 
       <NavbarContent justify="end" className="gap-4 bg-white lg:-mr-32">
         <NavbarItem className="hidden md:flex">
-          {/* Language Selector */}
           <Select
             value={language}
             onChange={handleLanguageChange}
@@ -134,18 +129,13 @@ const Navber = () => {
 
         <NavbarItem>
           {user ? (
-            <div className="relative">
-              {/* Profile Image */}
+            <div className="relative" ref={dropdownRef}>
               <img
-                src={
-                  user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"
-                }
+                src={user?.profileImg || "https://i.ibb.co/44vhj8G/image.png"}
                 alt="Profile"
                 className="h-12 w-12 rounded-full cursor-pointer border-1 border-black object-cover"
                 onClick={toggleDropdown}
               />
-
-              {/* Dropdown Menu */}
               {isDropdownOpen && (
                 <div className="absolute right-0 mt-2 w-48 bg-purple-300 shadow-lg rounded-md z-10 p-4">
                   <ul>
@@ -176,7 +166,6 @@ const Navber = () => {
                         </button>
                       </li>
                     ) : null}
-
                     <li>
                       <button
                         className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
@@ -208,40 +197,26 @@ const Navber = () => {
 
       {isMenuOpen && (
         <NavbarMenu>
-          {/* Mobile Menu Items */}
           <NavbarMenuItem>
-            <Link
-              href="/discover"
-              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
-            >
+            <Link href="/discover" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
               Discover
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link
-              href="/about"
-              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
-            >
+            <Link href="/about" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
               About Us
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link
-              href="/contact"
-              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
-            >
+            <Link href="/contact" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
               Contact Us
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link
-              href="#"
-              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
-            >
+            <Link href="#" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
               More
             </Link>
           </NavbarMenuItem>
-
           <NavbarMenuItem>
             <Select
               value={language}
@@ -267,4 +242,5 @@ const Navber = () => {
     </Navbar>
   );
 };
+
 export default Navber;
