@@ -7,7 +7,6 @@ import {
   FaChartLine,
   FaUser,
   FaCalendarAlt,
-  FaComments,
   FaHome,
   FaMoneyCheckAlt,
   FaCog,
@@ -68,18 +67,13 @@ const AdminSidebar = () => {
             <Link href="/admin/posts">Manage Posts</Link>
           </li>
           <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-            <FaComments className="mr-3" />
-            <Link href="/admin/comments">Manage Comments</Link>
+            <MdVerified className="mr-3" />
+            <Link href="/admin/verifiedUsers">Verified users </Link>
           </li>
           <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaMoneyCheckAlt className="mr-3" />
             <Link href="/admin/payments">Payments</Link>
           </li>
-          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-            <MdVerified className="mr-3" />
-            <Link href="/admin/moderation">Verified users </Link>
-          </li>
-         
           <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaCog className="mr-3" />
             <Link href="/admin/settings">Settings</Link>
