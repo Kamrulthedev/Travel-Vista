@@ -59,7 +59,7 @@ const MyProfileHome = () => {
         <img
           src={user?.profileImg}
           alt="Profile"
-          className="w-28 h-28 rounded-full"
+          className="w-28 h-28 rounded-full object-cover"
         />
         <div>
           <h1 className="text-2xl md:text-3xl font-bold">{user?.name}</h1>

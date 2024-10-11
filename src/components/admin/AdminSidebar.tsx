@@ -10,13 +10,14 @@ import {
   FaComments,
   FaHome,
   FaMoneyCheckAlt,
-  FaChartPie,
   FaCog,
 } from "react-icons/fa";
 import { MdVerified } from "react-icons/md";
 import { TfiHelpAlt } from "react-icons/tfi";
+import { CiLogout } from "react-icons/ci";
 
 import "./AdminSidebar.css";
+import { logout } from "@/services/AuthService";
 
 const AdminSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -24,6 +25,11 @@ const AdminSidebar = () => {
   // Toggle sidebar on mobile
   const toggleSidebar = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLogout = () => {
+    logout();
+    window.location.href = "/login";
   };
 
   return (
@@ -74,10 +80,7 @@ const AdminSidebar = () => {
             <MdVerified className="mr-3" />
             <Link href="/admin/moderation">Verified users </Link>
           </li>
-          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-            <FaChartPie className="mr-3" />
-            <Link href="/admin/analytics">Analytics</Link>
-          </li>
+         
           <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaCog className="mr-3" />
             <Link href="/admin/settings">Settings</Link>
@@ -86,6 +89,10 @@ const AdminSidebar = () => {
               <TfiHelpAlt className="mr-3" />
               <Link href="/admin/adminHelps">Admin Help</Link>
             </li>
+            <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+            <CiLogout  className="mr-3" />
+            <button onClick={ handleLogout}>Log Out</button>
+          </li>
         </ul>
 
       </div>

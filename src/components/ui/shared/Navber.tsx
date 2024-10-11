@@ -141,7 +141,7 @@ const Navber = () => {
                   user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"
                 }
                 alt="Profile"
-                className="h-12 w-12 rounded-full cursor-pointer border-1 border-black"
+                className="h-12 w-12 rounded-full cursor-pointer border-1 border-black object-cover"
                 onClick={toggleDropdown}
               />
 
@@ -170,7 +170,7 @@ const Navber = () => {
                       <li>
                         <button
                           className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
-                          onClick={() => (window.location.href = "/profile")}
+                          onClick={() => (window.location.href = "/user/dashborad")}
                         >
                           Dashboard
                         </button>

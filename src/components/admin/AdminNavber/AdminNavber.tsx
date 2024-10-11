@@ -78,7 +78,7 @@ const AdminNavber = () => {
             <img
               src={user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"}
               alt="Profile"
-              className="h-12 w-12 rounded-full cursor-pointer border-1 border-black"
+              className="h-12 w-12 rounded-full cursor-pointer border-1 border-black object-cover"
               onClick={toggleDropdown}
             />
 
