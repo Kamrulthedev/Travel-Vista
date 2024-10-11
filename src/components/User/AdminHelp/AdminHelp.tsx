@@ -4,7 +4,7 @@ import React from "react";
 const AdminHelp = () => {
   return (
     <div className="min-h-screen py-10">
-      <div className="max-w-4xl mx-auto bg-purple-100 p-8 rounded-lg shadow-lg">
+      <div className="max-w-4xl mx-auto bg-purple-50 p-8 rounded-lg shadow-lg">
         {/* Header */}
         <h1 className="text-3xl font-bold text-gray-800 mb-6 text-center">Admin Help Center</h1>
         <p className="text-gray-600 mb-8 text-center">

@@ -103,7 +103,7 @@ const MyPosts = () => {
   }, [isModalOpen, menuOpen, commentsOpen]);
 
   return (
-    <div className="p-4 max-w-5xl mx-auto text-black font-serif">
+    <div className="p-4 max-w-5xl mx-auto text-black bg-purple-50 font-serif">
       {/* Create Post Button */}
       <div className="flex justify-between">
         <div>

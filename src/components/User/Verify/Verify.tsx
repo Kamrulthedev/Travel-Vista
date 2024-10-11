@@ -13,7 +13,7 @@ const Verify = () => {
 
   return (
     <div className="min-h-screen flex items-center justify-center py-10">
-      <div className="bg-purple-100 p-8 rounded-lg shadow-lg max-w-lg w-full">
+      <div className="bg-purple-50 p-8 rounded-lg shadow-lg max-w-lg w-full">
         <h1 className="text-2xl font-bold text-gray-800 mb-6 text-center">Premium Access Verification</h1>
 
         <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">

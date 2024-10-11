@@ -48,7 +48,7 @@ const AdminNavber = () => {
   }, [isDropdownOpen]);
 
   return (
-    <nav className="bg-gray-100 text-black font-serif shadow-md">
+    <nav className="bg-purple-50 text-black font-serif shadow-md">
       <div className="container mx-auto flex justify-between items-center py-4 px-4 md:px-10">
         {/* Logo */}
         <Link href={"/"}>

@@ -46,7 +46,7 @@ const UserSidebar = () => {
 
       {/* Sidebar for Large Screens and Mobile */}
       <div
-        className={`bg-gray-100 w-64 h-screen p-6 font-serif fixed z-50 transform ${
+        className={`bg-purple-50 w-64 h-screen p-6 font-serif z-50 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } 
           md:translate-x-0 transition-transform duration-300 ease-in-out overflow-y-auto no-scrollbar`}
