@@ -20,7 +20,7 @@ import { logout } from "@/services/AuthService";
 
 const AdminSidebar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedItem, setSelectedItem] = useState("Home"); 
+  const [selectedItem, setSelectedItem] = useState("Dashboard"); 
 
   // Toggle sidebar on mobile
   const toggleSidebar = () => {

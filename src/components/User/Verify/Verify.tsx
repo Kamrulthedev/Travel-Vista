@@ -26,7 +26,7 @@ const Verify = () => {
                   type="radio"
                   value="weekly"
                   {...register("amount", { required: true })}
-                  className="form-radio h-5 w-5 text-indigo-600"
+                  className="form-radio bg-white h-5 w-5 text-indigo-600"
                 />
                 <span>Weekly</span>
                 <span className="text-xs text-gray-500">$5 per week</span>
@@ -36,7 +36,7 @@ const Verify = () => {
                   type="radio"
                   value="monthly"
                   {...register("amount", { required: true })}
-                  className="form-radio h-5 w-5 text-indigo-600"
+                  className="form-radio bg-white h-5 w-5 text-indigo-600"
                 />
                 <span>Monthly</span>
                 <span className="text-xs text-gray-500">$20 per month</span>
@@ -46,7 +46,7 @@ const Verify = () => {
                   type="radio"
                   value="yearly"
                   {...register("amount", { required: true })}
-                  className="form-radio h-5 w-5 text-indigo-600"
+                  className="form-radio bg-white h-5 w-5 text-indigo-600"
                 />
                 <span>Yearly</span>
                 <span className="text-xs text-gray-500">$200 per year</span>
@@ -62,7 +62,7 @@ const Verify = () => {
               type="text"
               placeholder="Your name"
               {...register("name", { required: "Name is required" })}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 bg-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
                    {errors.name && (
                   <p className="text-red-500 text-sm">
@@ -84,7 +84,7 @@ const Verify = () => {
                   message: "Invalid email address",
                 },
               })}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 bg-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
                   {errors.email && (
                   <p className="text-red-500 text-sm">
@@ -100,7 +100,7 @@ const Verify = () => {
               type="tel"
               placeholder="Your phone number"
               {...register("phone", { required: "Phone number is required" })}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 py-2 bg-white border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             />
                   {errors.phone && (
                   <p className="text-red-500 text-sm">
@@ -115,7 +115,7 @@ const Verify = () => {
             <textarea
               placeholder="Your address"
               {...register("address", { required: "Address is required" })}
-              className="w-full px-4 py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              className="w-full px-4 bg-white py-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"
             ></textarea>
                  {errors.address && (
                   <p className="text-red-500 text-sm">
