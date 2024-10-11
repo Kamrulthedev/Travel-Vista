@@ -1,8 +1,9 @@
+import React from 'react';
 
 const page = () => {
     return (
         <div>
-            <h3>hhhhhhhhhhh</h3>
+            <h1>Admin Deshborad</h1>
         </div>
     );
 };

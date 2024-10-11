@@ -4,13 +4,14 @@
 import { getCurrentUser } from "@/services/AuthService";
 import { IUser } from "@/types";
 import Link from "next/link";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 
 const AdminNavber = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [user, setUser] = useState<IUser | null>(null);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   const handleUser = async () => {
     const user = await getCurrentUser();
@@ -25,6 +26,23 @@ const AdminNavber = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      setIsDropdownOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    if (isDropdownOpen) {
+      document.addEventListener("click", handleClickOutside);
+    } else {
+      document.removeEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isDropdownOpen]);
 
   return (
     <nav className="bg-white text-black font-serif shadow-md">
@@ -52,33 +70,33 @@ const AdminNavber = () => {
 
         {/* Profile Image */}
         <div className="flex items-center space-x-4">
-        <div className="relative">
-              {/* Profile Image */}
-              <img
-                src={
-                  user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"
-                }
-                alt="Profile"
-                className="h-12 w-12 rounded-full cursor-pointer border-1 border-black"
-                onClick={toggleDropdown}
-              />
+          <div className="relative" ref={dropdownRef}>
+            {/* Profile Image */}
+            <img
+              src={
+                user?.profileImg || "https://i.ibb.co.com/44vhj8G/image.png"
+              }
+              alt="Profile"
+              className="h-12 w-12 rounded-full cursor-pointer border-1 border-black"
+              onClick={toggleDropdown}
+            />
 
-              {/* Dropdown Menu */}
-              {isDropdownOpen && (
-                <div className="absolute right-0 mt-2 w-48 bg-purple-300 shadow-lg rounded-md z-10 p-4">
-                  <ul>
-                    <li>
-                      <button
-                        className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
-                        onClick={() => (window.location.href = "/myProfile/myPosts")}
-                      >
-                        My Profile
-                      </button>
-                    </li>
-                  </ul>
-                </div>
-              )}
-            </div>
+            {/* Dropdown Menu */}
+            {isDropdownOpen && (
+              <div className="absolute right-0 mt-2 w-48 bg-purple-300 shadow-lg rounded-md z-10 p-4">
+                <ul>
+                  <li>
+                    <button
+                      className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
+                      onClick={() => (window.location.href = "/myProfile/myPosts")}
+                    >
+                      My Profile
+                    </button>
+                  </li>
+                </ul>
+              </div>
+            )}
+          </div>
           <button
             onClick={() => setIsOpen(!isOpen)}
             className="md:hidden text-2xl focus:outline-none"
