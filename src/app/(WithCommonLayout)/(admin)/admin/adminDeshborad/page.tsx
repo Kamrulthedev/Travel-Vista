@@ -1,11 +1,11 @@
-
+import DashboradHome from "@/components/AdminDashborad/DashboradHome";
 
 const page = () => {
-    return (
-        <div className=''>
-            <h1>Admin Deshborad</h1>
-        </div>
-    );
+  return (
+    <div>
+      <DashboradHome></DashboradHome>
+    </div>
+  );
 };
 
 export default page;

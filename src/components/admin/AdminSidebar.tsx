@@ -78,11 +78,6 @@ const AdminSidebar = () => {
             <FaChartPie className="mr-3" />
             <Link href="/admin/analytics">Analytics</Link>
           </li>
-
-          <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-            <FaUser className="mr-3" />
-            <Link href="/admin/profile">Profile</Link>
-          </li>
           <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaCog className="mr-3" />
             <Link href="/admin/settings">Settings</Link>

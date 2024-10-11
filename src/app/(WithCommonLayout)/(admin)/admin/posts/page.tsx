@@ -1,9 +1,10 @@
-import React from 'react';
+import PostsHome from '@/components/Posts/PostsHome';
+
 
 const page = () => {
     return (
         <div>
-            <h1>My Website All Posts</h1>
+            <PostsHome></PostsHome>
         </div>
     );
 };

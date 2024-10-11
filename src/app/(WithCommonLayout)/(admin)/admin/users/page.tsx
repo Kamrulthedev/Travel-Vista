@@ -1,9 +1,10 @@
+import UserHome from "@/components/Users/UserHome";
 
 
 const page = () => {
     return (
         <div>
-            <h1>My Webste All User</h1>
+           <UserHome></UserHome>
         </div>
     );
 };
