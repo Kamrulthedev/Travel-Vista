@@ -54,7 +54,7 @@ const UserSidebar = () => {
             </li>
             <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
               <FaChartLine className="mr-3" />
-              <Link href="/admin/adminDeshborad">Dashboard</Link>
+              <Link href="/user/dashborad">Dashboard</Link>
             </li>
             <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
               <FaCalendarAlt className="mr-3" />

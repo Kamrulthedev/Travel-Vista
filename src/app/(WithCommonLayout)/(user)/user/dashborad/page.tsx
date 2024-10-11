@@ -1,9 +1,10 @@
+import UserDashborad from "@/components/User/UserDashborad/UserDashborad";
 
 
 const page = () => {
     return (
         <div>
-            <h1>gggggggggggggggg</h1>
+           <UserDashborad></UserDashborad>
         </div>
     );
 };
