@@ -9,8 +9,8 @@ export default function layout({
 }) {
   return (
     <>
-      <div className="w-full flex gap-10 ">
-        <div className="w-2/5">
+      <div className="w-full flex gap-10 bg-white">
+        <div className="w-1/5">
           <div className="sticky top-0 h-screen overflow-y-auto">
             <AdminSidebar />
           </div>

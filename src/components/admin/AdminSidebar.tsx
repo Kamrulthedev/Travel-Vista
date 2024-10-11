@@ -7,10 +7,6 @@ import {
   FaChartLine,
   FaUser,
   FaCalendarAlt,
-  FaDribbble,
-  FaBehance,
-  FaYoutube,
-  FaInstagram,
   FaComments,
   FaTags,
   FaMoneyCheckAlt,
@@ -40,14 +36,14 @@ const AdminSidebar = () => {
 
       {/* Sidebar for Large Screens and Mobile */}
       <div
-        className={`bg-white w-64 h-screen p-6 font-serif fixed z-50 transform ${
+        className={`bg-gray-100 w-64 h-screen p-6 font-serif fixed z-50 transform ${
           isOpen ? "translate-x-0" : "-translate-x-full"
         } 
         md:translate-x-0 transition-transform duration-300 ease-in-out overflow-y-auto no-scrollbar`}
       >
         {/* Menu Section */}
         <h2 className="text-lg font-semibold mb-4">Menu</h2>
-        <ul className="space-y-4">
+        <ul className="space-y-2">
           <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
             <FaChartLine className="mr-3" />
             <Link href="/admin/adminDeshborad">Dashboard</Link>
@@ -89,29 +85,6 @@ const AdminSidebar = () => {
             <Link href="/admin/settings">Settings</Link>
           </li>
         </ul>
-
-        {/* Accounts Section */}
-        <div className="mt-8">
-          <h2 className="text-lg font-semibold mb-4">Accounts</h2>
-          <ul className="space-y-4">
-            <li className="flex items-center text-gray-600 hover:bg-green-600 hover:text-black rounded-lg p-2">
-              <FaDribbble className="mr-3" />
-              <Link href="/accounts/dribbble">Dribbble</Link>
-            </li>
-            <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-              <FaBehance className="mr-3" />
-              <Link href="/accounts/behance">Behance</Link>
-            </li>
-            <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-              <FaYoutube className="mr-3" />
-              <Link href="/accounts/youtube">YouTube</Link>
-            </li>
-            <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-              <FaInstagram className="mr-3" />
-              <Link href="/accounts/instagram">Instagram</Link>
-            </li>
-          </ul>
-        </div>
       </div>
 
       {/* Overlay when sidebar is open on mobile */}
