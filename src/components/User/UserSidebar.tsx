@@ -7,13 +7,14 @@ import {
   FaChartLine,
   FaCalendarAlt,
   FaHome,
-  FaMoneyCheckAlt,
-  FaCog,
+  FaMoneyCheckAlt
 } from "react-icons/fa";
 import { TfiHelpAlt } from "react-icons/tfi";
 import { CiLogout } from "react-icons/ci";
 import "./UserSidebar.css";
 import { logout } from "@/services/AuthService";
+import { SlUserFollow, SlUserFollowing  } from "react-icons/sl";
+
 
 const UserSidebar = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -58,15 +59,19 @@ const UserSidebar = () => {
             </li>
             <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
               <FaCalendarAlt className="mr-3" />
-              <Link href="/admin/posts">Manage Posts</Link>
+              <Link href="/user/myPosts">Manage Posts</Link>
+            </li>
+            <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+              <SlUserFollow  className="mr-3" />
+              <Link href="/user/followers">Followers</Link>
+            </li>
+            <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
+              <SlUserFollowing  className="mr-3" />
+              <Link href="/user/following">Following</Link>
             </li>
             <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
               <FaMoneyCheckAlt className="mr-3" />
-              <Link href="/admin/payments">Payments</Link>
-            </li>
-            <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
-              <FaCog className="mr-3" />
-              <Link href="/admin/settings">Settings</Link>
+              <Link href="/user/verify">Verify</Link>
             </li>
             <li className="flex items-center text-gray-600 hover:text-black transition hover:bg-green-600 rounded-lg p-2">
                 <TfiHelpAlt className="mr-3" />
