@@ -52,13 +52,20 @@ const Navber = () => {
   const handleLanguageChange = (
     eventOrValue: React.ChangeEvent<HTMLSelectElement> | string
   ) => {
-    setLanguage(typeof eventOrValue === "string" ? eventOrValue : eventOrValue.target.value);
+    setLanguage(
+      typeof eventOrValue === "string"
+        ? eventOrValue
+        : eventOrValue.target.value
+    );
   };
 
   // Close dropdown if clicked outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
         setIsDropdownOpen(false);
       }
     };
@@ -84,23 +91,35 @@ const Navber = () => {
 
       <NavbarContent className="hidden md:flex lg:gap-5" justify="center">
         <NavbarItem>
-          <Link href="/discover" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
+          <Link
+            href="/discover"
+            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
+          >
             Discover
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/about" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
+          <Link
+            href="/news"
+            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
+          >
+            News Feed
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link
+            href="/about"
+            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
+          >
             About Us
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link href="/contact" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
+          <Link
+            href="/contact"
+            className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg"
+          >
             Contact Us
-          </Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Link href="#" className="lg:text-lg hover:bg-slate-100 p-2 hover:rounded-lg">
-            More
           </Link>
         </NavbarItem>
       </NavbarContent>
@@ -142,7 +161,9 @@ const Navber = () => {
                     <li>
                       <button
                         className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
-                        onClick={() => (window.location.href = "/myProfile/myPosts")}
+                        onClick={() =>
+                          (window.location.href = "/myProfile/myPosts")
+                        }
                       >
                         My Profile
                       </button>
@@ -151,7 +172,9 @@ const Navber = () => {
                       <li>
                         <button
                           className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
-                          onClick={() => (window.location.href = "/admin/adminDeshborad")}
+                          onClick={() =>
+                            (window.location.href = "/admin/adminDeshborad")
+                          }
                         >
                           Admin Dashboard
                         </button>
@@ -160,7 +183,9 @@ const Navber = () => {
                       <li>
                         <button
                           className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
-                          onClick={() => (window.location.href = "/user/dashborad")}
+                          onClick={() =>
+                            (window.location.href = "/user/dashborad")
+                          }
                         >
                           Dashboard
                         </button>
@@ -198,25 +223,38 @@ const Navber = () => {
       {isMenuOpen && (
         <NavbarMenu>
           <NavbarMenuItem>
-            <Link href="/discover" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
+            <Link
+              href="/discover"
+              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
+            >
               Discover
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link href="/about" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
+            <Link
+              href="#"
+              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
+            >
+              News Feed
+            </Link>
+          </NavbarMenuItem>
+          <NavbarMenuItem>
+            <Link
+              href="/about"
+              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
+            >
               About Us
             </Link>
           </NavbarMenuItem>
           <NavbarMenuItem>
-            <Link href="/contact" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
+            <Link
+              href="/contact"
+              className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg"
+            >
               Contact Us
             </Link>
           </NavbarMenuItem>
-          <NavbarMenuItem>
-            <Link href="#" className="text-black font-serif text-xl hover:bg-slate-100 p-2 hover:rounded-lg">
-              More
-            </Link>
-          </NavbarMenuItem>
+
           <NavbarMenuItem>
             <Select
               value={language}
