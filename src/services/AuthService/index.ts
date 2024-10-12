@@ -18,6 +18,7 @@ export const registerUser = async (userData: FieldValues) => {
     return data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
+    console.log(error)
     if (error.response) {
       console.log("Error response:", error.response.data);
     } else if (error.request) {

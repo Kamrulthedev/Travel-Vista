@@ -24,9 +24,11 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   function (response) {
+    console.log(response)
     return response;
   },
   function (error) {
+    console.log(error)
     if (error?.response?.status === 401) {
       // Token has expired or is invalid
       console.error("Unauthorized access - Redirecting to login.");
