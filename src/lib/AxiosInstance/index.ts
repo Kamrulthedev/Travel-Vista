@@ -11,7 +11,6 @@ axiosInstance.interceptors.request.use(
   function (config) {
     const cookieStore = cookies();
     const accessToken = cookieStore.get("accessToken")?.value;
-    console.log(accessToken);
     if (accessToken) {
       config.headers.Authorization = accessToken;
     }
@@ -38,10 +37,8 @@ axiosInstance.interceptors.response.use(
 
       // Redirect the user to the login page
       redirect("/login");
-
       return Promise.reject(error);
     }
-    
     return Promise.reject(error);
   }
 );

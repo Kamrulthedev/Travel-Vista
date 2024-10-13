@@ -15,8 +15,9 @@ interface PostFormInputs {
   imageFile: File | null;
 }
 
+
 const MyPosts = () => {
-  const { mutate: CreatePost, isSuccess, isPending } = useCreatePost();
+  const { mutate: CreatePost } = useCreatePost();
   const [posts, setPosts] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState<number | null>(null);
@@ -54,9 +55,9 @@ const MyPosts = () => {
     };
     console.log("Post Data :", postData);
     CreatePost(postData);
-
     setIsModalOpen(false);
   };
+
 
   // Handle post edit (log the post data)
   const handleEditPost = (post: any) => {

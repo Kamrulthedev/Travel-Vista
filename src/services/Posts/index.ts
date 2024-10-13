@@ -12,10 +12,11 @@ export const createPost = async (formData: FormData): Promise<any> => {
     });
 
     revalidateTag("posts");
-
     return data;
   } catch (error) {
     console.log(error);
     throw new Error("Failed to create post");
   }
 };
+
+

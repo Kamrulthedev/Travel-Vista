@@ -4,7 +4,6 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 
 
-
 export const useCreatePost = () => {
   return useMutation<any, Error, FormData>({
     mutationKey: ["CREATE_POST"],
