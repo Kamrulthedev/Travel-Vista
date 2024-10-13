@@ -193,7 +193,7 @@ const Navber = () => {
                     ) : null}
                     <li>
                       <button
-                        className="w-full text-left px-4 py-2 text-black hover:bg-purple-400 hover:rounded-lg"
+                        className="w-full text-left px-4 py-2 text-red-700 hover:bg-purple-400 hover:rounded-lg"
                         onClick={handleLogout}
                       >
                         Log out

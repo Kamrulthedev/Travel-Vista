@@ -1,7 +1,7 @@
 import envConfig from "@/config/envConfig";
+import { getNewAccessToken } from "@/services/AuthService";
 import axios from "axios";
 import { cookies } from "next/headers";
-import { redirect } from "next/navigation";
 
 const axiosInstance = axios.create({
   baseURL: envConfig.baseApi,
@@ -23,24 +23,23 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
   function (response) {
-    console.log(response)
     return response;
   },
-  function (error) {
-    console.log(error)
-    if (error?.response?.status === 401) {
-      // Token has expired or is invalid
-      console.error("Unauthorized access - Redirecting to login.");
-      
-      // Clear the access token
-      cookies().delete("accessToken");
+  async function (error) {
+    const config = error.config;
 
-      // Redirect the user to the login page
-      redirect("/login");
+    if (error?.response?.status === 401 && !config?.sent) {
+      config.sent = true;
+      const res = await getNewAccessToken();
+      const accessToken = res.data.accessToken;
+
+      config.headers["Authorization"] = accessToken;
+      cookies().set("accessToken", accessToken);
+
+      return axiosInstance(config);
+    } else {
       return Promise.reject(error);
     }
-    return Promise.reject(error);
   }
 );
-
 export default axiosInstance;

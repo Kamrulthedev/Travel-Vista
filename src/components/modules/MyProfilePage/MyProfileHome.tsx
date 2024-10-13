@@ -65,16 +65,23 @@ const MyProfileHome = () => {
 
   // Function to handle form submission
   const onSubmit = (data: any) => {
+    // const UpdataData = {
+    //   data,
+    //   profileImg,
+    // };
+
     const UpdataData = {
-      data,
-      profileImg,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      address: data.address,
+      profileImg: profileImg,
     };
+
     console.log(UpdataData);
     updateUser(UpdataData);
     handleEditProfile();
   };
-
-
 
   // Route to Posts or Followers
   const navigateTo = (path: any) => {

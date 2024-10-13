@@ -15,9 +15,8 @@ interface PostFormInputs {
   imageFile: File | null;
 }
 
-
 const MyPosts = () => {
-  const { mutate: CreatePost } = useCreatePost();
+  const { mutate: CreatePost , isError} = useCreatePost();
   const [posts, setPosts] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState<number | null>(null);
@@ -46,21 +45,21 @@ const MyPosts = () => {
   };
 
   const onSubmit: SubmitHandler<PostFormInputs> = (data) => {
-    const formData = new FormData();
-    formData.append("userId", user?._id || "");
-    formData.append("title", data.title);
-    formData.append("description", data.description); 
+    console.log(data);
 
-    if (data.imageFile) {
-      formData.append("image", data.imageFile);
-    }
+    const formData = {
+      userId: user?._id,
+      title: data.title,
+      description: data.description,
+      PostImg: data.imageFile,
+    };
     console.log("Form Data:", formData);
-  
+
     CreatePost(formData);
+
+    console.log(isError)
     setIsModalOpen(false);
   };
-  
-
 
   // Handle post edit (log the post data)
   const handleEditPost = (post: any) => {

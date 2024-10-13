@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
+/* eslint-disable @typescript-eslint/no-unused-vars */
 "use server";
 
 import { cookies } from "next/headers";
@@ -52,21 +54,20 @@ export const logout = () => {
 
 export const UpdateUser = async (UpdateData: FieldValues) => {
   console.log(UpdateData);
-  // try {
-  //   const { data } = await axiosInstance.post(
-  //     `/users/${UpdateData?.id}`,
-  //     UpdateData
-  //   );
-  //   if (data.success) {
-  //     // Only store accessToken
-  //     cookies().set("accessToken", data?.data?.accessToken);
-  //   }
-  //   return data;
-  //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // } catch (error: any) {
-  //   console.log(error);
-  //   throw new Error(error);
-  // }
+  try {
+    const { data } = await axiosInstance.post(
+      `/users/${UpdateData?.id}`,
+      UpdateData
+    );
+    if (data.success) {
+      // Only store accessToken
+      cookies().set("accessToken", data?.data?.accessToken);
+    }
+    return data;
+  } catch (error: any) {
+    console.log(error);
+    throw new Error(error);
+  }
 };
 
 export const getCurrentUser = async () => {
@@ -93,4 +94,23 @@ export const getCurrentUser = async () => {
   }
 
   return decodedToken;
+};
+
+export const getNewAccessToken = async () => {
+  try {
+    const refreshToken = cookies().get("refreshToken")?.value;
+
+    const res = await axiosInstance({
+      url: "/auth/refresh-token",
+      method: "POST",
+      withCredentials: true,
+      headers: {
+        cookie: `refreshToken=${refreshToken}`,
+      },
+    });
+
+    return res.data;
+  } catch (error) {
+    throw new Error("Failed to get new access token");
+  }
 };
