@@ -46,17 +46,20 @@ const MyPosts = () => {
   };
 
   const onSubmit: SubmitHandler<PostFormInputs> = (data) => {
-    console.log(data);
-    const postData = {
-      userId: user?._id,
-      title: data.title,
-      description: data.description,
-      image: data.imageFile,
-    };
-    console.log("Post Data :", postData);
-    CreatePost(postData);
+    const formData = new FormData();
+    formData.append("userId", user?._id || "");
+    formData.append("title", data.title);
+    formData.append("description", data.description); 
+
+    if (data.imageFile) {
+      formData.append("image", data.imageFile);
+    }
+    console.log("Form Data:", formData);
+  
+    CreatePost(formData);
     setIsModalOpen(false);
   };
+  
 
 
   // Handle post edit (log the post data)

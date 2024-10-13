@@ -70,11 +70,11 @@ const MyProfileHome = () => {
       profileImg,
     };
     console.log(UpdataData);
-    // Call the updateUser mutation with the form data
     updateUser(UpdataData);
-
     handleEditProfile();
   };
+
+
 
   // Route to Posts or Followers
   const navigateTo = (path: any) => {
