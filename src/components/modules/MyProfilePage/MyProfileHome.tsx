@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
+import { useUserUpdate } from "@/hooks/auth.hook";
 import { getCurrentUser } from "@/services/AuthService";
 import { IUser } from "@/types";
 import { useRouter } from "next/navigation";
@@ -50,25 +51,27 @@ const MyProfileHome = () => {
   };
 
   // Handle profile image change
-  const handleProfileImageChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleProfileImageChange = (
+    event: React.ChangeEvent<HTMLInputElement>
+  ) => {
     const file = event.target.files?.[0];
     if (file) {
       setProfileImg(file);
     }
   };
 
+  // Initialize the useUserUpdate mutation hook
+  const { mutate: updateUser } = useUserUpdate();
+
   // Function to handle form submission
   const onSubmit = (data: any) => {
-    const EditData = {
-      name: data?.name,
-      email: data?.email,
-      phone: data?.phone,
-      address: data?.address,
-      ProfileImg: profileImg
-    }
-
-    console.log(EditData)
-
+    const UpdataData = {
+      data,
+      profileImg,
+    };
+    console.log(UpdataData);
+    // Call the updateUser mutation with the form data
+    updateUser(UpdataData);
 
     handleEditProfile();
   };

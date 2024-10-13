@@ -6,7 +6,7 @@ import { jwtDecode } from "jwt-decode";
 import axiosInstance from "@/lib/AxiosInstance";
 
 export const registerUser = async (userData: FieldValues) => {
-  console.log(userData)
+  console.log(userData);
   try {
     const { data } = await axiosInstance.post("/auth/register", userData);
     console.log(data);
@@ -18,7 +18,7 @@ export const registerUser = async (userData: FieldValues) => {
     return data;
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
-    console.log(error)
+    console.log(error);
     if (error.response) {
       console.log("Error response:", error.response.data);
     } else if (error.request) {
@@ -28,7 +28,6 @@ export const registerUser = async (userData: FieldValues) => {
     }
     throw new Error(error);
   }
-  
 };
 
 export const loginUser = async (userData: FieldValues) => {
@@ -49,6 +48,25 @@ export const loginUser = async (userData: FieldValues) => {
 export const logout = () => {
   cookies().delete("accessToken");
   // No need to delete refreshToken since it's not used
+};
+
+export const UpdateUser = async (UpdateData: FieldValues) => {
+  console.log(UpdateData);
+  // try {
+  //   const { data } = await axiosInstance.post(
+  //     `/users/${UpdateData?.id}`,
+  //     UpdateData
+  //   );
+  //   if (data.success) {
+  //     // Only store accessToken
+  //     cookies().set("accessToken", data?.data?.accessToken);
+  //   }
+  //   return data;
+  //   // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // } catch (error: any) {
+  //   console.log(error);
+  //   throw new Error(error);
+  // }
 };
 
 export const getCurrentUser = async () => {
@@ -73,7 +91,6 @@ export const getCurrentUser = async () => {
       updatedAt: decodedToken.updatedAt,
     };
   }
-
 
   return decodedToken;
 };
