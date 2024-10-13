@@ -1,64 +1,79 @@
-/* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @next/next/no-img-element */
 "use client";
 
+import { useCreatePost } from "@/hooks/posts.hook";
+import { useForm, SubmitHandler } from "react-hook-form";
 import { useEffect, useRef, useState } from "react";
 import { FaEllipsisH, FaThumbsUp, FaComment } from "react-icons/fa";
+import { getCurrentUser } from "@/services/AuthService";
+import { IUser } from "@/types";
+
+interface PostFormInputs {
+  title: string;
+  description: string;
+  imageFile: File | null;
+}
 
 const MyPosts = () => {
-  // State to manage posts
-  const [posts, setPosts] = useState([
-    {
-      id: 1,
-      title: "Beautiful Beach",
-      description: "This is a description of a beautiful beach.",
-      imageUrl: "https://via.placeholder.com/300",
-      comments: ["Stunning view!", "I love this place!"],
-    },
-  ]);
-
-  // State for creating/editing posts
+  const { mutate: CreatePost, isSuccess, isPending } = useCreatePost();
+  const [posts, setPosts] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [newPost, setNewPost] = useState({
-    id: "",
-    title: "",
-    description: "",
-    imageUrl: "",
-  });
-
-  // State for the 3-dot menu of each post
   const [menuOpen, setMenuOpen] = useState<number | null>(null);
-
-  // State for the comments modal
   const [commentsOpen, setCommentsOpen] = useState<number | null>(null);
-
-  // Ref for the modal and 3-dot menu
   const modalRef = useRef<HTMLDivElement | null>(null);
   const menuRef = useRef<HTMLDivElement | null>(null);
 
+  // react-hook-form setup
+  const { register, handleSubmit, reset } = useForm<PostFormInputs>();
+
+  const [user, setUser] = useState<IUser | null>(null);
+
+  const handleUser = async () => {
+    const user = await getCurrentUser();
+    setUser(user);
+  };
+
+  useEffect(() => {
+    handleUser();
+  }, []);
+
   // Open the create post modal
   const handleCreatePost = () => {
-    setNewPost({ id: "", title: "", description: "", imageUrl: "" });
+    reset({ title: "", description: "", imageFile: null });
     setIsModalOpen(true);
   };
 
-  // Handle post submission
-  const handleSubmitPost = (e: any) => {
-    e.preventDefault();
-    setPosts([...posts, { ...newPost, id: posts.length + 1, comments: [] }]);
+  const onSubmit: SubmitHandler<PostFormInputs> = (data) => {
+    console.log(data);
+    const postData = {
+      userId: user?._id,
+      title: data.title,
+      description: data.description,
+      image: data.imageFile,
+    };
+    console.log("Post Data :", postData);
+    CreatePost(postData);
+
     setIsModalOpen(false);
   };
 
-  // Handle edit post
+  // Handle post edit (log the post data)
   const handleEditPost = (post: any) => {
-    setNewPost(post);
+    console.log("Edit Post Data:", post);
     setIsModalOpen(true);
     setMenuOpen(null);
+
+    reset({
+      title: post.title,
+      description: post.description,
+      imageFile: post.imageFile,
+    });
   };
 
   // Handle delete post
   const handleDeletePost = (id: number) => {
+    console.log("Delete Post ID:", id);
     setPosts(posts.filter((post) => post.id !== id));
     setMenuOpen(null);
   };
@@ -68,34 +83,24 @@ const MyPosts = () => {
     setIsModalOpen(false);
   };
 
-  // Close modal or menu on outside click
-  const handleClickOutside = (event: MouseEvent) => {
-    if (
-      modalRef.current &&
-      !modalRef.current.contains(event.target as Node) &&
-      isModalOpen
-    ) {
-      setIsModalOpen(false);
-    }
-    if (
-      menuRef.current &&
-      !menuRef.current.contains(event.target as Node) &&
-      menuOpen !== null
-    ) {
-      setMenuOpen(null);
-    }
-  };
-
-  // Open or close comments modal
-  const toggleCommentsModal = (postId: number) => {
-    if (commentsOpen === postId) {
-      setCommentsOpen(null); // Close modal
-    } else {
-      setCommentsOpen(postId); // Open modal
-    }
-  };
-
   useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      if (
+        modalRef.current &&
+        !modalRef.current.contains(event.target as Node) &&
+        isModalOpen
+      ) {
+        setIsModalOpen(false);
+      }
+      if (
+        menuRef.current &&
+        !menuRef.current.contains(event.target as Node) &&
+        menuOpen !== null
+      ) {
+        setMenuOpen(null);
+      }
+    };
+
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -125,11 +130,13 @@ const MyPosts = () => {
             className="bg-white p-4 shadow rounded-lg relative"
           >
             {/* Post Image, Title, Description */}
-            <img
-              src={post.imageUrl}
-              alt={post.title}
-              className="w-full p-3 h-64 object-cover rounded-xl mb-4"
-            />
+            {post.imageFile && (
+              <img
+                src={URL.createObjectURL(post.imageFile)}
+                alt={post.title}
+                className="w-full p-3 h-64 object-cover rounded-xl mb-4"
+              />
+            )}
             <h2 className="text-xl font-bold mb-2">{post.title}</h2>
             <p className="text-gray-700 mb-4">{post.description}</p>
 
@@ -139,7 +146,7 @@ const MyPosts = () => {
                 <FaThumbsUp className="mr-2 text-sky-600" /> Like
               </button>
               <button
-                onClick={() => toggleCommentsModal(post.id)}
+                onClick={() => setCommentsOpen(post.id)}
                 className="flex items-center text-gray-500"
               >
                 <FaComment className="mr-2 text-sky-600" /> Comment
@@ -170,21 +177,14 @@ const MyPosts = () => {
             </div>
 
             {/* Comments Modal */}
-            {commentsOpen === post.id && (
-              <div className="mt-4 bg-gray-100 p-4 rounded-lg shadow-md">
-                <h3 className="text-lg font-semibold">Comments</h3>
-                <div className="space-y-2">
-                  {post.comments.length > 0 ? (
-                    post.comments.map((comment, index) => (
-                      <p key={index} className="text-gray-700">
-                        {comment}
-                      </p>
-                    ))
-                  ) : (
-                    <p className="text-gray-500">No comments yet.</p>
-                  )}
-                </div>
-              </div>
+            {post.comments.length > 0 ? (
+              post.comments.map((comment: string, index: number) => (
+                <p key={index} className="text-gray-700">
+                  {comment}
+                </p>
+              ))
+            ) : (
+              <p className="text-gray-500">No comments yet.</p>
             )}
           </div>
         ))}
@@ -197,10 +197,8 @@ const MyPosts = () => {
             className="bg-white p-6 rounded-lg shadow-lg w-96"
             ref={modalRef}
           >
-            <h2 className="text-xl font-bold mb-4">
-              {newPost.id ? "Edit Post" : "Create Post"}
-            </h2>
-            <form onSubmit={handleSubmitPost}>
+            <h2 className="text-xl font-bold mb-4">Create or Edit Post</h2>
+            <form onSubmit={handleSubmit(onSubmit)}>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">
                   Title
@@ -208,11 +206,7 @@ const MyPosts = () => {
                 <input
                   type="text"
                   className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md"
-                  value={newPost.title}
-                  onChange={(e) =>
-                    setNewPost({ ...newPost, title: e.target.value })
-                  }
-                  required
+                  {...register("title", { required: true })}
                 />
               </div>
               <div className="mb-4">
@@ -221,24 +215,17 @@ const MyPosts = () => {
                 </label>
                 <textarea
                   className="mt-1 block w-full px-3 bg-white py-2 border border-gray-300 rounded-md"
-                  value={newPost.description}
-                  onChange={(e) =>
-                    setNewPost({ ...newPost, description: e.target.value })
-                  }
-                  required
+                  {...register("description", { required: true })}
                 />
               </div>
               <div className="mb-4">
                 <label className="block text-sm font-medium text-gray-700">
-                  Image URL
+                  Image File
                 </label>
                 <input
-                  type="text"
-                  className="mt-1 block w-full px-3 bg-white py-2 border border-gray-300 rounded-md"
-                  value={newPost.imageUrl}
-                  onChange={(e) =>
-                    setNewPost({ ...newPost, imageUrl: e.target.value })
-                  }
+                  type="file"
+                  className="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md"
+                  {...register("imageFile")}
                 />
               </div>
               <div className="flex justify-end">
@@ -253,7 +240,7 @@ const MyPosts = () => {
                   type="submit"
                   className="px-4 py-2 bg-blue-500 text-white rounded-md"
                 >
-                  {newPost.id ? "Update Post" : "Create Post"}
+                  Save Post
                 </button>
               </div>
             </form>
