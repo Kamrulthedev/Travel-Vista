@@ -52,6 +52,8 @@ export const logout = () => {
   // No need to delete refreshToken since it's not used
 };
 
+
+//update user
 export const UpdateUser = async (UpdateData: FieldValues) => {
   console.log(UpdateData);
   try {
@@ -70,6 +72,8 @@ export const UpdateUser = async (UpdateData: FieldValues) => {
   }
 };
 
+
+//get current user
 export const getCurrentUser = async () => {
   const accessToken = cookies().get("accessToken")?.value;
   let decodedToken = null;

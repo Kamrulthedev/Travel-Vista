@@ -61,27 +61,27 @@ const MyProfileHome = () => {
   };
 
   // Initialize the useUserUpdate mutation hook
-  const { mutate: updateUser } = useUserUpdate();
+  const { mutate: updateUser, data } = useUserUpdate();
 
-  // Function to handle form submission
-  const onSubmit = (data: any) => {
-    // const UpdataData = {
-    //   data,
-    //   profileImg,
-    // };
+  console.log(data)
 
-    const UpdataData = {
-      name: data.name,
-      email: data.email,
-      phone: data.phone,
-      address: data.address,
-      profileImg: profileImg,
-    };
+// Function to handle form submission
+const onSubmit = (data: any) => {
+  const formData = new FormData(); 
+  
+  formData.append("name", data.name);
+  formData.append("email", data.email);
+  formData.append("phone", data.phone);
+  formData.append("address", data.address);
+  
+  if (profileImg) {
+    formData.append("profileImg", profileImg);
+  }
+  console.log(formData); 
+  updateUser(formData); 
+  handleEditProfile(); 
+};
 
-    console.log(UpdataData);
-    updateUser(UpdataData);
-    handleEditProfile();
-  };
 
   // Route to Posts or Followers
   const navigateTo = (path: any) => {

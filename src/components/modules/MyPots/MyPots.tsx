@@ -16,7 +16,7 @@ interface PostFormInputs {
 }
 
 const MyPosts = () => {
-  const { mutate: CreatePost , isError} = useCreatePost();
+  const { mutate: CreatePost, isError, data } = useCreatePost();
   const [posts, setPosts] = useState<any[]>([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [menuOpen, setMenuOpen] = useState<number | null>(null);
@@ -43,21 +43,23 @@ const MyPosts = () => {
     reset({ title: "", description: "", imageFile: null });
     setIsModalOpen(true);
   };
+  console.log(data);
 
   const onSubmit: SubmitHandler<PostFormInputs> = (data) => {
-    console.log(data);
 
-    const formData = {
-      userId: user?._id,
-      title: data.title,
-      description: data.description,
-      PostImg: data.imageFile,
-    };
-    console.log("Form Data:", formData);
+    const formData = new FormData();
+    formData.append("userId", user?._id || "");
+    formData.append("title", data.title);
+    formData.append("description", data.description);
 
+    if (data.imageFile) {
+      formData.append("PostImg", data.imageFile);
+    }
+
+
+    console.log(formData);
     CreatePost(formData);
-
-    console.log(isError)
+    console.log(isError);
     setIsModalOpen(false);
   };
 

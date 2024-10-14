@@ -4,7 +4,7 @@ import axiosInstance from "@/lib/AxiosInstance";
 import { revalidateTag } from "next/cache";
 
 export const createPost = async (formData: FormData): Promise<any> => {
-  console.log(formData)
+  console.log("create post data",formData)
   try {
     const { data } = await axiosInstance.post("/posts/create", formData, {
       headers: {
