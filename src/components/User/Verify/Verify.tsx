@@ -1,10 +1,24 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client";
 
-import React from "react";
+import { getCurrentUser } from "@/services/AuthService";
+import { IUser } from "@/types";
+import {useState, useEffect} from "react";
 import { useForm } from "react-hook-form";
 
 const Verify = () => {
+  const [user, setUser] = useState<IUser | null>(null);
+ 
+
+  const handleUser = async () => {
+    const user = await getCurrentUser();
+    setUser(user);
+  };
+
+  useEffect(() => {
+    handleUser();
+  }, []);
+
   const {
     register,
     handleSubmit,
@@ -12,7 +26,15 @@ const Verify = () => {
   } = useForm();
 
   const onSubmit = (data: any) => {
-    console.log("Form Data:", data);
+    const verifyData = {
+      userId: user?._id,
+      Amount: data.amount,
+      name: data.name,
+      email: data.email,
+      phone: data.phone,
+      address: data.address
+    }
+    console.log("Form Data:", verifyData);
   };
 
   return (

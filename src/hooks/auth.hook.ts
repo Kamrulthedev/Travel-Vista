@@ -4,6 +4,8 @@ import { useMutation } from "@tanstack/react-query";
 import { FieldValues } from "react-hook-form";
 import { toast } from "sonner";
 
+
+//Register User
 export const useUserRegistration = () => {
   return useMutation<any, Error, FieldValues>({
     mutationKey: ["USER_REGISTRATION"],
@@ -18,6 +20,8 @@ export const useUserRegistration = () => {
   });
 };
 
+
+//Login User
 export const useUserLogin = () => {
   return useMutation<any, Error, FieldValues>({
     mutationKey: ["USER_LOGIN"],
@@ -31,6 +35,8 @@ export const useUserLogin = () => {
   });
 };
 
+
+//Update User
 export const useUserUpdate = () => {
   return useMutation<any, Error, FieldValues>({
     mutationKey: ["UPDATE_USER"],
