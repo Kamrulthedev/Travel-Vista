@@ -19,6 +19,7 @@ import { FiMenu, FiX } from "react-icons/fi";
 import { Select, SelectItem } from "@nextui-org/select";
 import { getCurrentUser, logout } from "@/services/AuthService";
 import { IUser } from "@/types";
+import { useUser } from "@/context/user.provider";
 
 const Navber = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -26,6 +27,7 @@ const Navber = () => {
   const [language, setLanguage] = useState("EN");
   const [user, setUser] = useState<IUser | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
+  const {setIsLoading: userLoading} = useUser()
 
   const handleUser = async () => {
     const user = await getCurrentUser();
@@ -46,6 +48,7 @@ const Navber = () => {
 
   const handleLogout = () => {
     logout();
+    userLoading(true)
     window.location.href = "/login";
   };
 
